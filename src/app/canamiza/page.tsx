@@ -181,7 +181,10 @@ export default function PaginaCanamiza() {
           </div>
 
           <Revelar>
-            <p className="mt-10 text-sm leading-relaxed opacity-70">
+            <div className="mt-12 border-l-2 border-[var(--color-verde-bosque)] bg-[var(--color-beige)] p-6">
+              <p className="leading-relaxed">{datos.notaHonestidad}</p>
+            </div>
+            <p className="mt-8 text-sm leading-relaxed opacity-70">
               También distribuimos a través de{' '}
               {datos.canales.join(' y ').toLowerCase()}.
             </p>

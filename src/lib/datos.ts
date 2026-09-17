@@ -53,6 +53,7 @@ const canamizaSchema = z.object({
   beneficios: z.array(beneficioSchema).min(1),
   animales: z.array(animalSchema).min(1),
   canales: z.array(z.string()).min(1),
+  notaHonestidad: z.string(),
 })
 
 export type Animal = z.infer<typeof animalSchema>

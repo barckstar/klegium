@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { VideoFondo } from './VideoFondo'
 
 /**
  * Hero a sangre completa: foto de fondo, degradado oscuro encima y el contenido
@@ -7,6 +8,7 @@ import Image from 'next/image'
  */
 export function Hero({
   imagen,
+  video,
   alt,
   prioridad = false,
   altura = 'grande',
@@ -14,6 +16,8 @@ export function Hero({
   children,
 }: {
   imagen: string
+  /** Si viene, el fondo es video y `imagen` pasa a ser el póster. */
+  video?: string
   alt: string
   prioridad?: boolean
   altura?: 'grande' | 'media'
@@ -29,14 +33,22 @@ export function Hero({
           : 'min-h-[52svh] md:min-h-[58svh]'
       }`}
     >
-      <Image
-        src={imagen}
-        alt={alt}
-        fill
-        priority={prioridad}
-        sizes="100vw"
-        className={`-z-10 object-cover ${deriva ? 'animacion-deriva' : ''}`}
-      />
+      {video ? (
+        <VideoFondo
+          src={video}
+          poster={imagen}
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+      ) : (
+        <Image
+          src={imagen}
+          alt={alt}
+          fill
+          priority={prioridad}
+          sizes="100vw"
+          className={`-z-10 object-cover ${deriva ? 'animacion-deriva' : ''}`}
+        />
+      )}
       {/* Doble capa: una general para bajar el brillo, otra desde abajo para
           anclar el texto. Juntas dan contraste AA sin apagar la foto. */}
       <div className="absolute inset-0 -z-10 bg-[var(--color-negro)]/25" />

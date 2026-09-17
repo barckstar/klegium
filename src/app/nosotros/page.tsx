@@ -13,10 +13,25 @@ export const metadata: Metadata = {
 }
 
 const EQUIPO = [
-  { nombre: 'Kevin Rodríguez', rol: 'Fundador', foto: null },
-  { nombre: 'Emanuel', rol: 'Cofundador', foto: null },
-  { nombre: 'Leonel Castro', rol: 'Cofundador', foto: null },
-] as { nombre: string; rol: string; foto: string | null }[]
+  {
+    nombre: 'Kevin Rodríguez',
+    rol: 'Fundador',
+    oficios: ['Empresario'],
+    foto: null,
+  },
+  {
+    nombre: 'Emanuel',
+    rol: 'Cofundador',
+    oficios: ['Empresario'],
+    foto: null,
+  },
+  {
+    nombre: 'Leonel Castro',
+    rol: 'Cofundador',
+    oficios: ['Empresario', 'Ingeniero en sistemas'],
+    foto: null,
+  },
+] as { nombre: string; rol: string; oficios: string[]; foto: string | null }[]
 
 /** Fotos del cultivo. Solo plantas sanas: una planta enferma en la web propia
  *  es un argumento en contra que nadie pidió. */
@@ -221,6 +236,16 @@ export default function PaginaNosotros() {
                     <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
                       {persona.rol}
                     </p>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {persona.oficios.map((o) => (
+                        <li
+                          key={o}
+                          className="rounded-full border border-[var(--color-verde-bosque)]/30 px-3 py-1 text-xs"
+                        >
+                          {o}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </li>
               </Revelar>

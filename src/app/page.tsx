@@ -35,10 +35,10 @@ export default function PaginaInicio() {
     <>
       {/* ------------------------------------------------------------- hero */}
       <Hero
-        imagen="/fotos/hero-terreno-atardecer.jpg"
-        alt="El terreno de cultivo de cáñamo en San Isidro de San Ramón al atardecer, con el valle al fondo"
+        imagen="/fotos/cultivo-video-poster.jpg"
+        video="/video/cultivo.mp4"
+        alt="Cultivo de cáñamo industrial de Klegium en San Isidro de San Ramón"
         prioridad
-        deriva
       >
         <Revelar desde="escala">
           <Image
@@ -168,12 +168,12 @@ export default function PaginaInicio() {
       {/* ------------------------------------------ red de agricultores */}
       <section className="relative isolate overflow-hidden bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
         <Image
-          src="/fotos/trabajo-en-campo.jpg"
+          src="/fotos/plantas-desde-abajo.jpg"
           alt=""
           aria-hidden="true"
           fill
           sizes="100vw"
-          className="-z-10 object-cover opacity-40"
+          className="-z-10 object-cover object-center opacity-45"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/85 to-[var(--color-verde-profundo)]/40" />
 
