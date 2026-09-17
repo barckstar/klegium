@@ -2,19 +2,12 @@ import Image from 'next/image'
 import { Revelar } from '@/components/Revelar'
 import { Formulario, type Campo } from './Formulario'
 
-/**
- * PROVISIONAL. Acá va la foto de los tres fundadores en el terreno, que todavía
- * no está en el proyecto — no aparece en ninguna de las 113 fotos del archivo,
- * así que viene de otro teléfono.
- *
- * Cuando llegue: se deja en public/fotos/ y se cambian estas tres constantes.
- * Es el único lugar del sitio donde hay que tocarla.
- */
-const FOTO = '/fotos/trabajo-en-campo.jpg'
+/** La foto del equipo. Está acá y no en cada página: se cambia en un solo lugar. */
+const FOTO = '/fotos/los-tres.jpg'
 const FOTO_ALT =
-  'Trabajo de preparación del terreno de cáñamo de Klegium en San Isidro de San Ramón'
+  'Los tres fundadores de Klegium en el terreno de cultivo de San Isidro de San Ramón'
 const PIE =
-  'Quien reciba su mensaje es una de las tres personas que trabaja este terreno, no un centro de llamadas.'
+  'Somos tres. Quien reciba su mensaje es una de estas personas, no un centro de llamadas.'
 
 /**
  * Formulario con la foto del equipo al lado.

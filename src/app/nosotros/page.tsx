@@ -198,10 +198,31 @@ export default function PaginaNosotros() {
       {/* ------------------------------------------------------------ equipo */}
       <section className="bg-[var(--color-salvia)]/30">
         <div className="mx-auto max-w-6xl px-4 py-24">
-          <Eyebrow>
-            <span className="text-[var(--color-verde-bosque)]">El equipo</span>
-          </Eyebrow>
-          <ul className="mt-12 grid gap-8 sm:grid-cols-3">
+          <Revelar>
+            <Eyebrow>
+              <span className="text-[var(--color-verde-bosque)]">El equipo</span>
+            </Eyebrow>
+            <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">Somos tres</h2>
+          </Revelar>
+
+          <Revelar retraso={120}>
+            <figure className="mt-10">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm sm:aspect-[16/9]">
+                <Image
+                  src="/fotos/los-tres.jpg"
+                  alt="Los tres fundadores de Klegium en el terreno de cultivo de San Isidro de San Ramón"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 1152px"
+                  className="object-cover object-top"
+                />
+              </div>
+              <figcaption className="mt-4 text-sm leading-relaxed opacity-70">
+                En el terreno de San Isidro de San Ramón.
+              </figcaption>
+            </figure>
+          </Revelar>
+
+          <ul className="mt-16 grid gap-8 sm:grid-cols-3">
             {EQUIPO.map((persona, i) => (
               <Revelar key={persona.nombre} retraso={i * 120} className="h-full">
                 <li className="group h-full overflow-hidden rounded-sm bg-[var(--color-beige)] shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
