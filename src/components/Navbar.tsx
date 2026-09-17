@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
@@ -50,10 +51,19 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-[0.25em]"
+          className="flex items-center gap-3"
           onClick={() => setMenuAbierto(false)}
         >
-          KLEGIUM
+          <Image
+            src="/marca/isotipo-claro.png"
+            alt=""
+            aria-hidden="true"
+            width={384}
+            height={457}
+            priority
+            className="h-8 w-auto"
+          />
+          <span className="text-lg font-semibold tracking-[0.25em]">KLEGIUM</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm md:flex">

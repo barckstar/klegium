@@ -10,12 +10,15 @@ export function Hero({
   alt,
   prioridad = false,
   altura = 'grande',
+  deriva = false,
   children,
 }: {
   imagen: string
   alt: string
   prioridad?: boolean
   altura?: 'grande' | 'media'
+  /** Zoom lentísimo de la foto de fondo: da vida sin distraer del texto. */
+  deriva?: boolean
   children: React.ReactNode
 }) {
   return (
@@ -32,7 +35,7 @@ export function Hero({
         fill
         priority={prioridad}
         sizes="100vw"
-        className="-z-10 object-cover"
+        className={`-z-10 object-cover ${deriva ? 'animacion-deriva' : ''}`}
       />
       {/* Doble capa: una general para bajar el brillo, otra desde abajo para
           anclar el texto. Juntas dan contraste AA sin apagar la foto. */}

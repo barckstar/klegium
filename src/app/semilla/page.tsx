@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Hero, Eyebrow } from '@/components/Hero'
+import Image from 'next/image'
 import { Instituciones } from '@/components/Instituciones'
+import { Revelar } from '@/components/Revelar'
 import { Formulario } from '@/features/formulario/Formulario'
 
 export const metadata: Metadata = {
@@ -39,6 +41,7 @@ export default function PaginaSemilla() {
         imagen="/fotos/vivero-bolsas.jpg"
         alt="Vivero de Klegium con bolsas de almácigo de cáñamo industrial en San Ramón"
         prioridad
+        deriva
       >
         <Eyebrow>Futura 75 · Fedora 17</Eyebrow>
         <h1 className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,7vw,4.5rem)] font-semibold leading-[1.02] text-[var(--color-beige)]">
@@ -51,16 +54,39 @@ export default function PaginaSemilla() {
         </p>
       </Hero>
 
+      {/* banda de variedades: el dato duro, grande y con color */}
+      <section className="bg-[var(--color-verde-hoja)] text-[var(--color-verde-profundo)]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:grid-cols-3">
+          {[
+            { dato: 'Futura 75', pie: 'Variedad certificada UE' },
+            { dato: 'Fedora 17', pie: 'Variedad certificada UE' },
+            { dato: '100%', pie: 'De los lotes con respaldo documental' },
+          ].map((x, i) => (
+            <Revelar key={x.dato} retraso={i * 110}>
+              <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
+                {x.dato}
+              </p>
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.15em] opacity-70">
+                {x.pie}
+              </p>
+            </Revelar>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-24">
-        <Eyebrow>
-          <span className="text-[var(--color-verde-bosque)]">
-            Qué respalda nuestra semilla
-          </span>
-        </Eyebrow>
+        <Revelar>
+          <Eyebrow>
+            <span className="text-[var(--color-verde-bosque)]">
+              Qué respalda nuestra semilla
+            </span>
+          </Eyebrow>
+        </Revelar>
 
         <div className="mt-12 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-2">
           {TRAZABILIDAD.map((t, i) => (
-            <div key={t.titulo} className="bg-[var(--color-beige)] p-8 sm:p-10">
+            <Revelar key={t.titulo} retraso={i * 100} className="h-full">
+            <div className="h-full bg-[var(--color-beige)] p-8 transition-colors duration-300 hover:bg-[var(--color-salvia)]/30 sm:p-10">
               <span className="text-sm tabular-nums tracking-widest text-[var(--color-verde-bosque)]/60">
                 0{i + 1}
               </span>
@@ -69,6 +95,7 @@ export default function PaginaSemilla() {
               </h3>
               <p className="mt-3 leading-relaxed">{t.detalle}</p>
             </div>
+            </Revelar>
           ))}
         </div>
       </section>
@@ -91,6 +118,36 @@ export default function PaginaSemilla() {
             vender. Antes de cualquier venta revisamos el permiso del comprador
             —así lo exige la ley y así lo hacemos.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-salvia)]/30">
+        <div className="mx-auto max-w-6xl px-4 py-20">
+          <Revelar>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
+              De esta semilla sale esto
+            </p>
+          </Revelar>
+          <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {[
+              ['/fotos/almacigo-bandeja.jpg', 'Bandeja de germinación con plántulas de cáñamo'],
+              ['/fotos/planta-sana-1.jpg', 'Plántula de cáñamo sana en bolsa'],
+              ['/fotos/planta-sana-2.jpg', 'Planta de cáñamo con hojas bien formadas'],
+              ['/fotos/cultivo-verde.jpg', 'Cultivo de cáñamo establecido'],
+            ].map(([src, alt], i) => (
+              <Revelar key={src} retraso={i * 90} desde="escala">
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-[900ms] group-hover:scale-110"
+                  />
+                </div>
+              </Revelar>
+            ))}
+          </div>
         </div>
       </section>
 

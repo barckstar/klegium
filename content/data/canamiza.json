@@ -1,5 +1,7 @@
 {
   "nombre": "Cañamiza triturada",
+  "nombreComercial": "Aserrín de Oro",
+  "nombreComercialProvisional": true,
   "subtitulo": "Cama natural para animales, de cáñamo industrial costarricense",
   "descripcion": "La cañamiza —o hurd— es el núcleo leñoso del tallo del cáñamo industrial. La cultivamos y procesamos en San Isidro de San Ramón, sin químicos ni aditivos, y cada lote se puede rastrear hasta la parcela donde creció.",
   "beneficios": [
@@ -52,11 +54,69 @@
       "requiereFuente": true
     }
   ],
-  "publicos": [
-    "Caballerizas",
-    "Fincas ganaderas",
-    "Aves",
-    "Conejos y pequeños animales",
-    "Agroveterinarias"
-  ]
+  "animales": [
+    {
+      "id": "caballos",
+      "nombre": "Caballos",
+      "contexto": "Caballerizas, picaderos y establos.",
+      "ventajas": [
+        "Cama mullida que amortigua el descanso sobre piso duro",
+        "El material compostado sirve de abono en la misma finca",
+        "Lote trazable: usted sabe de dónde salió lo que pisa su caballo"
+      ],
+      "desventajas": [
+        "Cuesta más por saco que la viruta común; el ahorro está en que dura más, no en el precio de entrada",
+        "La cama profunda inicial pide más volumen que un recambio normal",
+        "Algunos caballos tardan unos días en acostumbrarse a la textura"
+      ],
+      "foto": null
+    },
+    {
+      "id": "ganado",
+      "nombre": "Ganado",
+      "contexto": "Establos de ordeño, corrales y áreas de parto.",
+      "ventajas": [
+        "Mantiene la cama seca en áreas de mucho tránsito",
+        "Se integra al manejo de residuos: sale como compost, no como basura",
+        "Producción local: se repone sin depender de importación"
+      ],
+      "desventajas": [
+        "El consumo por área es alto; para hatos grandes hay que planificar volumen y bodega",
+        "Requiere espacio de almacenamiento seco",
+        "El transporte a zonas lejanas de San Ramón encarece el saco"
+      ],
+      "foto": null
+    },
+    {
+      "id": "aves",
+      "nombre": "Aves",
+      "contexto": "Galpones, gallineros y criaderos.",
+      "ventajas": [
+        "Absorbe la humedad de la yacija y facilita el manejo",
+        "Compostable junto con la gallinaza",
+        "Sin químicos ni tratamientos añadidos"
+      ],
+      "desventajas": [
+        "La partícula puede resultar grande para pollitos de primera semana; conviene tamizar o mezclar",
+        "Necesita recambio según carga animal, como cualquier cama"
+      ],
+      "foto": null
+    },
+    {
+      "id": "conejos",
+      "nombre": "Conejos y pequeños animales",
+      "contexto": "Jaulas, conejeras y mascotas de granja.",
+      "ventajas": [
+        "No astilla como algunas virutas de madera dura",
+        "Fácil de retirar y compostar en pequeñas cantidades",
+        "Material vegetal simple, sin aditivos"
+      ],
+      "desventajas": [
+        "Algunos animales roen el material; hay que vigilar consumo",
+        "En cantidades pequeñas el costo por unidad sube"
+      ],
+      "foto": null
+    }
+  ],
+  "canales": ["Agroveterinarias", "Distribuidores agropecuarios"]
 }

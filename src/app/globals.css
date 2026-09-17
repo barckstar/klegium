@@ -10,6 +10,15 @@
 
 html {
   scroll-behavior: smooth;
+  /* La barra de scroll tomaba los colores del sistema y rompía la paleta. */
+  scrollbar-color: var(--color-verde-bosque) var(--color-verde-profundo);
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -17,8 +26,54 @@ body {
   color: var(--color-negro);
 }
 
+/* WebKit ignora scrollbar-color, así que lleva su propia regla. */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-verde-profundo);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-verde-bosque);
+  border: 2px solid var(--color-verde-profundo);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-verde-hoja);
+}
+
 /* Foco visible en toda la navegación por teclado. */
 :focus-visible {
   outline: 2px solid var(--color-verde-hoja);
   outline-offset: 3px;
+}
+
+/* Selección de texto con la paleta, no con el azul del sistema. */
+::selection {
+  background: var(--color-verde-hoja);
+  color: var(--color-verde-profundo);
+}
+
+/* Deriva lenta de la imagen de fondo: un acercamiento suave al entrar.
+   Corre UNA vez y se queda quieta (`forwards`), no en bucle infinito: un
+   bucle deja al compositor trabajando para siempre en algo que nadie mira
+   después de los primeros segundos. */
+@keyframes deriva {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.animacion-deriva {
+  animation: deriva 18s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animacion-deriva {
+    animation: none;
+  }
 }

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Instituciones } from '@/components/Instituciones'
+import { Certificaciones } from '@/components/Certificaciones'
+import { Revelar } from '@/components/Revelar'
 import { getPermisos } from '@/lib/datos'
 
 export const metadata: Metadata = {
@@ -11,9 +13,20 @@ export const metadata: Metadata = {
 }
 
 const EQUIPO = [
-  { nombre: 'Kevin Rodríguez', rol: 'Fundador' },
-  { nombre: 'Emanuel', rol: 'Cofundador' },
-  { nombre: 'Leonel Castro', rol: 'Cofundador' },
+  { nombre: 'Kevin Rodríguez', rol: 'Fundador', foto: null },
+  { nombre: 'Emanuel', rol: 'Cofundador', foto: null },
+  { nombre: 'Leonel Castro', rol: 'Cofundador', foto: null },
+] as { nombre: string; rol: string; foto: string | null }[]
+
+/** Fotos del cultivo. Solo plantas sanas: una planta enferma en la web propia
+ *  es un argumento en contra que nadie pidió. */
+const GALERIA = [
+  { src: '/fotos/planta-sana-1.jpg', alt: 'Planta de cáñamo industrial sana en bolsa de almácigo' },
+  { src: '/fotos/planta-sana-2.jpg', alt: 'Plántula de cáñamo con hojas palmeadas bien formadas' },
+  { src: '/fotos/planta-sana-3.jpg', alt: 'Plantas de cáñamo establecidas en el vivero' },
+  { src: '/fotos/almacigo-bandeja.jpg', alt: 'Bandeja de germinación con plántulas de cáñamo' },
+  { src: '/fotos/cultivo-verde.jpg', alt: 'Cultivo de cáñamo industrial en pleno crecimiento' },
+  { src: '/fotos/vivero-bolsas.jpg', alt: 'Hileras de bolsas de almácigo en el vivero de San Ramón' },
 ]
 
 const ESTADO = {
@@ -133,6 +146,38 @@ export default function PaginaNosotros() {
         </div>
       </section>
 
+      {/* ---------------------------------------------------------- galería */}
+      <section className="bg-[var(--color-beige)]">
+        <div className="mx-auto max-w-6xl px-4 py-24">
+          <Revelar>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
+              El cultivo, por dentro
+            </p>
+            <h2 className="mt-5 max-w-2xl text-3xl font-semibold sm:text-4xl">
+              De la bandeja de germinación a la planta establecida
+            </h2>
+          </Revelar>
+
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {GALERIA.map((g, i) => (
+              <Revelar key={g.src} retraso={i * 80} desde="escala">
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+                  <Image
+                    src={g.src}
+                    alt={g.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-[var(--color-verde-profundo)]/0 transition-colors duration-500 group-hover:bg-[var(--color-verde-profundo)]/25" />
+                </div>
+              </Revelar>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Certificaciones />
       <Instituciones fondo="claro" />
 
       {/* ------------------------------------------------------------ equipo */}
@@ -141,14 +186,44 @@ export default function PaginaNosotros() {
           <Eyebrow>
             <span className="text-[var(--color-verde-bosque)]">El equipo</span>
           </Eyebrow>
-          <ul className="mt-12 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-3">
-            {EQUIPO.map((p) => (
-              <li key={p.nombre} className="bg-[var(--color-beige)] p-8">
-                <p className="text-2xl font-semibold">{p.nombre}</p>
-                <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
-                  {p.rol}
-                </p>
-              </li>
+          <ul className="mt-12 grid gap-8 sm:grid-cols-3">
+            {EQUIPO.map((persona, i) => (
+              <Revelar key={persona.nombre} retraso={i * 120} className="h-full">
+                <li className="group h-full overflow-hidden rounded-sm bg-[var(--color-beige)] shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-verde-profundo)]">
+                    {persona.foto ? (
+                      <Image
+                        src={persona.foto}
+                        alt={persona.nombre}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 380px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="flex h-full flex-col items-center justify-center gap-3">
+                        <Image
+                          src="/marca/isotipo-claro.png"
+                          alt=""
+                          aria-hidden="true"
+                          width={384}
+                          height={457}
+                          className="h-16 w-auto opacity-30"
+                        />
+                        <span className="text-[0.65rem] uppercase tracking-[0.25em] text-[var(--color-salvia)]/60">
+                          Foto pendiente
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute inset-x-0 bottom-0 h-1 bg-[var(--color-verde-hoja)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-2xl font-semibold">{persona.nombre}</p>
+                    <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
+                      {persona.rol}
+                    </p>
+                  </div>
+                </li>
+              </Revelar>
             ))}
           </ul>
         </div>

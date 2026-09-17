@@ -33,13 +33,29 @@ const beneficioSchema = z.object({
   requiereFuente: z.boolean(),
 })
 
+const animalSchema = z.object({
+  id: z.string(),
+  nombre: z.string(),
+  contexto: z.string(),
+  ventajas: z.array(z.string()).min(1),
+  /** Se publican. Decir las desventajas de frente es lo que hace creíbles las ventajas. */
+  desventajas: z.array(z.string()).min(1),
+  foto: z.string().nullable(),
+})
+
 const canamizaSchema = z.object({
   nombre: z.string(),
+  nombreComercial: z.string(),
+  /** true = todavía no está decidido. La web lo muestra como nombre de línea, no como marca registrada. */
+  nombreComercialProvisional: z.boolean(),
   subtitulo: z.string(),
   descripcion: z.string(),
   beneficios: z.array(beneficioSchema).min(1),
-  publicos: z.array(z.string()).min(1),
+  animales: z.array(animalSchema).min(1),
+  canales: z.array(z.string()).min(1),
 })
+
+export type Animal = z.infer<typeof animalSchema>
 
 export type Beneficio = z.infer<typeof beneficioSchema>
 export type Canamiza = z.infer<typeof canamizaSchema>
@@ -113,4 +129,19 @@ export type Institucion = z.infer<typeof institucionSchema>
 
 export function getInstituciones(): Institucion[] {
   return cargar('instituciones.json', z.array(institucionSchema).min(1))
+}
+
+/* ----------------------------------------------------------- certificaciones */
+
+const certificacionSchema = z.object({
+  id: z.string(),
+  nombre: z.string(),
+  estado: z.enum(['en-proceso', 'obtenida', 'por-definir']),
+  detalle: z.string(),
+})
+
+export type Certificacion = z.infer<typeof certificacionSchema>
+
+export function getCertificaciones(): Certificacion[] {
+  return cargar('certificaciones.json', z.array(certificacionSchema).min(1))
 }

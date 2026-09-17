@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 const ENLACES = [
@@ -14,6 +15,14 @@ export function Footer() {
     <footer className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2">
         <div>
+          <Image
+            src="/marca/isotipo-claro.png"
+            alt=""
+            aria-hidden="true"
+            width={384}
+            height={457}
+            className="mb-4 h-12 w-auto opacity-80"
+          />
           <p className="text-lg font-semibold tracking-[0.25em]">KLEGIUM</p>
           <p className="mt-3 text-sm text-[var(--color-salvia)]">
             Cultivamos el presente, construimos el futuro.
