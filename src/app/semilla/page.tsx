@@ -3,6 +3,8 @@ import { Hero, Eyebrow } from '@/components/Hero'
 import Image from 'next/image'
 import { Instituciones } from '@/components/Instituciones'
 import { Revelar } from '@/components/Revelar'
+import { Faq, FaqJsonLd } from '@/components/Faq'
+import { MarcoLegal } from '@/components/MarcoLegal'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
 export const metadata: Metadata = {
@@ -37,6 +39,8 @@ const TRAZABILIDAD = [
 export default function PaginaSemilla() {
   return (
     <>
+      <FaqJsonLd grupos={['Semilla', 'Marco legal']} />
+
       <Hero
         imagen="/fotos/vivero-bolsas.jpg"
         alt="Vivero de Klegium con bolsas de almácigo de cáñamo industrial en San Ramón"
@@ -181,6 +185,81 @@ export default function PaginaSemilla() {
         </div>
       </section>
 
+      {/* ------------------------------------------------ variedad tropical */}
+      <section className="relative isolate overflow-hidden bg-[var(--color-negro)] text-[var(--color-beige)]">
+        <Image
+          src="/fotos/cultivo-verde.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover opacity-20"
+        />
+        <div className="mx-auto max-w-5xl px-4 py-24">
+          <Revelar>
+            <Eyebrow>Investigación en curso</Eyebrow>
+            <h2 className="mt-5 max-w-3xl text-balance text-3xl font-semibold sm:text-4xl">
+              Estamos trabajando en una variedad para el trópico
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed">
+              Las variedades certificadas de cáñamo industrial se desarrollaron
+              para latitudes templadas. Cerca del ecuador el fotoperiodo es otro:
+              la planta florece antes de tiempo y el rendimiento cae. Por eso
+              cultivar cáñamo industrial en Costa Rica hoy exige infraestructura
+              —riego, iluminación, a veces invernadero— que no toda finca tiene.
+            </p>
+          </Revelar>
+
+          <div className="mt-14 grid gap-px bg-[var(--color-salvia)]/20 sm:grid-cols-2">
+            <Revelar className="h-full">
+              <div className="h-full bg-[var(--color-negro)]/80 p-8 backdrop-blur-sm sm:p-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-salvia)]">
+                  El problema
+                </p>
+                <p className="mt-4 leading-relaxed">
+                  No existe una variedad pensada para estas condiciones. Las que
+                  hay se adaptan a duras penas, y el costo de compensarlo lo paga
+                  el agricultor en equipo e insumos.
+                </p>
+              </div>
+            </Revelar>
+
+            <Revelar retraso={140} className="h-full">
+              <div className="h-full bg-[var(--color-negro)]/80 p-8 backdrop-blur-sm sm:p-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-verde-hoja)]">
+                  Hacia dónde vamos
+                </p>
+                <p className="mt-4 leading-relaxed">
+                  Una variedad adaptada al clima tropical, para que cultivar
+                  cáñamo no dependa de tener invernadero, iluminación o riego
+                  permanente. Que pueda hacerlo cualquier finca del país.
+                </p>
+              </div>
+            </Revelar>
+          </div>
+
+          <Revelar retraso={220}>
+            <p className="mt-12 border-l-2 border-[var(--color-verde-hoja)] pl-6 leading-relaxed text-[var(--color-salvia)]">
+              Es una línea de investigación a largo plazo, no un producto. Obtener
+              y registrar una variedad nueva toma años y pasa por la Oficina
+              Nacional de Semillas. Lo contamos porque es hacia donde apunta el
+              proyecto, no porque esté resuelto.
+            </p>
+          </Revelar>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- faq */}
+      <section className="mx-auto max-w-5xl px-4 py-24">
+        <Revelar>
+          <h2 className="text-3xl font-semibold sm:text-4xl">Preguntas frecuentes</h2>
+        </Revelar>
+        <div className="mt-12">
+          <Faq grupos={['Semilla', 'Marco legal']} />
+        </div>
+      </section>
+
+      <MarcoLegal />
       <Instituciones fondo="claro" />
     </>
   )

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { getCanamiza, beneficiosPublicables } from '@/lib/datos'
+import { Faq, FaqJsonLd } from '@/components/Faq'
 import { Fuentes } from '@/components/Fuentes'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
@@ -18,6 +19,8 @@ export default function PaginaCanamiza() {
 
   return (
     <>
+      <FaqJsonLd grupos={['Cañamiza']} />
+
       <Hero
         imagen="/fotos/canamiza-material.jpg"
         alt="Cañamiza de cáñamo industrial triturada, lista para usarse como cama animal"
@@ -252,6 +255,15 @@ export default function PaginaCanamiza() {
               />
             </div>
           </Revelar>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 py-24">
+        <Revelar>
+          <h2 className="text-3xl font-semibold sm:text-4xl">Preguntas frecuentes</h2>
+        </Revelar>
+        <div className="mt-12">
+          <Faq grupos={['Cañamiza']} />
         </div>
       </section>
 

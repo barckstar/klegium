@@ -83,6 +83,14 @@ const modalidadSchema = z.object({
   id: z.string(),
   nombre: z.string(),
   resumen: z.string(),
+  precio: z
+    .object({
+      monto: z.number().positive(),
+      moneda: z.literal('CRC'),
+      etiqueta: z.string(),
+      incluye: z.string(),
+    })
+    .nullable(),
   aporta: z.array(z.string()).min(1),
   recibe: z.array(z.string()).min(1),
   aCargoDeKlegium: z.array(z.string()).min(1),
@@ -90,8 +98,25 @@ const modalidadSchema = z.object({
 
 const redSchema = z.object({
   modalidades: z.array(modalidadSchema).min(1),
+  /** Interruptor único: en false, ningún precio de la red se muestra. */
+  publicarPrecio: z.boolean(),
   loQueNoEs: z.array(z.string()).min(1),
+  responsabilidad: z.object({
+    titulo: z.string(),
+    entrada: z.string(),
+    puntos: z.array(z.object({ titulo: z.string(), detalle: z.string() })).min(1),
+    cierre: z.string(),
+  }),
 })
+
+/** Formato de colones costarricenses, sin decimales. */
+export function colones(monto: number): string {
+  return new Intl.NumberFormat('es-CR', {
+    style: 'currency',
+    currency: 'CRC',
+    maximumFractionDigits: 0,
+  }).format(monto)
+}
 
 export type Modalidad = z.infer<typeof modalidadSchema>
 export type Red = z.infer<typeof redSchema>
@@ -166,4 +191,35 @@ export type Fuente = z.infer<typeof fuenteSchema>
 
 export function getFuentes() {
   return cargar('fuentes.json', fuentesSchema)
+}
+
+/* --------------------------------------------------------------------- faq */
+
+const faqSchema = z.array(
+  z.object({
+    grupo: z.string(),
+    preguntas: z.array(z.object({ p: z.string(), r: z.string() })).min(1),
+  })
+).min(1)
+
+export type GrupoFaq = z.infer<typeof faqSchema>[number]
+
+export function getFaq(): GrupoFaq[] {
+  return cargar('faq.json', faqSchema)
+}
+
+/* ------------------------------------------------------ requisitos terreno */
+
+const requisitoSchema = z.object({
+  numero: z.string(),
+  titulo: z.string(),
+  obligatorio: z.boolean(),
+  detalle: z.string(),
+  comoSaber: z.string(),
+})
+
+export type Requisito = z.infer<typeof requisitoSchema>
+
+export function getRequisitos(): Requisito[] {
+  return cargar('requisitos-terreno.json', z.array(requisitoSchema).min(1))
 }

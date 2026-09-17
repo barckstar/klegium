@@ -6,6 +6,7 @@ const ENLACES = [
   { href: '/red', texto: 'Red de agricultores' },
   { href: '/semilla', texto: 'Semilla' },
   { href: '/nosotros', texto: 'Nosotros' },
+  { href: '/preguntas', texto: 'Preguntas' },
   { href: '/contacto', texto: 'Contacto' },
   { href: '/privacidad', texto: 'Privacidad' },
 ]

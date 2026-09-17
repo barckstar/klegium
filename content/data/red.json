@@ -4,6 +4,7 @@
       "id": "arrendamiento",
       "nombre": "Usted presta el terreno",
       "resumen": "Nosotros hacemos todo el trabajo. Usted recibe un pago por el uso de su tierra.",
+      "precio": null,
       "aporta": [
         "El derecho de uso del terreno, mediante un contrato formal",
         "Nada más: no participa en las labores ni asume el riesgo del cultivo"
@@ -22,9 +23,15 @@
       "id": "suscripcion",
       "nombre": "Usted administra su terreno",
       "resumen": "Usted lleva el cultivo en su propia tierra y nosotros le damos todo lo que necesita, con acompañamiento en campo.",
+      "precio": {
+        "monto": 500000,
+        "moneda": "CRC",
+        "etiqueta": "Suscripción",
+        "incluye": "Todo lo necesario para llevar el cultivo"
+      },
       "aporta": [
         "El terreno y el trabajo de administrarlo",
-        "Una suscripción que cubre el paquete completo"
+        "La suscripción, que cubre el paquete completo"
       ],
       "recibe": [
         "Semilla y plántulas",
@@ -39,9 +46,29 @@
       ]
     }
   ],
+  "publicarPrecio": true,
   "loQueNoEs": [
     "No es una franquicia ni una autorización que se comparte.",
     "Participar en la red no lo convierte en productor autorizado de cáñamo: la titularidad de la producción y la responsabilidad ante el MAG quedan siempre en Klegium.",
     "No entregamos semilla para que alguien siembre por su cuenta bajo nuestra autorización."
-  ]
+  ],
+  "responsabilidad": {
+    "titulo": "Una licencia compartida es una responsabilidad compartida",
+    "entrada": "Klegium responde por el cultivo y por toda la parte legal ante el MAG. Esa es nuestra parte del trato, y la asumimos completa. Pero hay algo que tiene que quedar claro antes de empezar.",
+    "puntos": [
+      {
+        "titulo": "Una parcela puede hundir a toda la red",
+        "detalle": "Todas las parcelas operan bajo una sola autorización. Un incumplimiento en una sola —material no autorizado, registros falseados, desvío de producción, negarse a una inspección— pone en riesgo esa autorización y, con ella, el trabajo de todos los demás."
+      },
+      {
+        "titulo": "Si alguien incurre en mala praxis, tenemos que actuar",
+        "detalle": "No es una amenaza, es la consecuencia inevitable: si una parcela nos expone, vamos a tener que proceder legalmente contra quien la maneja para proteger la licencia del resto. Preferimos decirlo de frente ahora que descubrirlo juntos después."
+      },
+      {
+        "titulo": "Por eso las reglas van antes del contrato",
+        "detalle": "Antes de sembrar el primer bolsón revisamos juntos el plan de manejo, los registros que hay que llevar, qué se puede y qué no, y qué pasa en una inspección. Si algo no le calza, es mejor saberlo en esa conversación."
+      }
+    ],
+    "cierre": "El cáñamo industrial en Costa Rica es una actividad regulada y fiscalizada por el MAG, el Ministerio de Salud, el SFE y el ICD. Entrar con los ojos abiertos es parte del trato."
+  }
 }

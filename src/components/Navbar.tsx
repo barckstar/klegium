@@ -14,6 +14,7 @@ const ENLACES = [
   { href: '/red', texto: 'Red de agricultores' },
   { href: '/semilla', texto: 'Semilla' },
   { href: '/nosotros', texto: 'Nosotros' },
+  { href: '/preguntas', texto: 'Preguntas' },
 ]
 
 export function Navbar() {
@@ -76,11 +77,14 @@ export function Navbar() {
               {e.texto}
             </Link>
           ))}
+          {/* Contorno en vez de pastilla sólida: pesa menos en una barra oscura
+              y deja el verde hoja como acento, no como bloque. */}
           <Link
             href="/contacto"
-            className="rounded bg-[var(--color-verde-hoja)] px-4 py-2 font-semibold text-[var(--color-verde-profundo)] transition-opacity hover:opacity-90"
+            className="group relative overflow-hidden rounded-sm border border-[var(--color-verde-hoja)] px-5 py-2 font-semibold text-[var(--color-verde-hoja)] transition-colors duration-300 hover:text-[var(--color-verde-profundo)]"
           >
-            Contacto
+            <span className="absolute inset-0 -translate-x-full bg-[var(--color-verde-hoja)] transition-transform duration-300 ease-out group-hover:translate-x-0" />
+            <span className="relative">Contacto</span>
           </Link>
         </nav>
 
