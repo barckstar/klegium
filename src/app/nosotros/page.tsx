@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { Hero, Eyebrow } from '@/components/Hero'
+import { Instituciones } from '@/components/Instituciones'
 import { getPermisos } from '@/lib/datos'
 
 export const metadata: Metadata = {
   title: 'Nosotros',
   description:
-    'Klegium cultiva cáñamo industrial en San Isidro de San Ramón con autorización del MAG. Quiénes somos, qué permisos tenemos y en qué estamos investigando.',
+    'Klegium cultiva cáñamo industrial en San Isidro de San Ramón con autorización del MAG. Quiénes somos, qué permisos tenemos y qué estamos investigando.',
 }
 
 const EQUIPO = [
@@ -14,10 +16,10 @@ const EQUIPO = [
   { nombre: 'Leonel Castro', rol: 'Cofundador' },
 ]
 
-const ETIQUETA_ESTADO = {
-  otorgado: { texto: 'Otorgado', clase: 'text-[var(--color-verde-bosque)]' },
-  'en-tramite': { texto: 'En trámite', clase: 'opacity-70' },
-  pendiente: { texto: 'Pendiente', clase: 'opacity-70' },
+const ESTADO = {
+  otorgado: { texto: 'Otorgado', clase: 'text-[var(--color-verde-hoja)]' },
+  'en-tramite': { texto: 'En trámite', clase: 'text-[var(--color-salvia)]' },
+  pendiente: { texto: 'Pendiente', clase: 'text-[var(--color-salvia)]/60' },
 } as const
 
 export default function PaginaNosotros() {
@@ -26,75 +28,103 @@ export default function PaginaNosotros() {
 
   return (
     <>
+      <Hero
+        imagen="/fotos/terreno-san-ramon.jpg"
+        alt="El terreno de cultivo en San Isidro de San Ramón, con el cantón al fondo"
+        prioridad
+        altura="media"
+      >
+        <Eyebrow>San Isidro de San Ramón, Alajuela</Eyebrow>
+        <h1 className="mt-6 text-[clamp(2.25rem,7vw,4.5rem)] font-semibold leading-[1.02] text-[var(--color-beige)]">
+          Nosotros
+        </h1>
+      </Hero>
+
+      {/* -------------------------------------------------------- el símbolo */}
       <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto max-w-3xl px-4 py-20 text-center">
-          <h1 className="text-4xl font-semibold sm:text-5xl">Nosotros</h1>
-          <p className="mt-10 text-xl leading-relaxed">
-            El símbolo representa unión, crecimiento y propósito compartido. Las
-            hojas reflejan la vida, la naturaleza y el cultivo responsable. Las
-            formas circulares simbolizan el trabajo en equipo y la visión a largo
-            plazo. No es solo una inicial, es la unión de personas que construyen
-            algo más grande.
+        <div className="mx-auto max-w-4xl px-4 py-24 sm:py-32">
+          <Eyebrow>El símbolo</Eyebrow>
+          <p className="mt-10 text-balance text-2xl font-light leading-[1.5] sm:text-[2rem]">
+            Representa unión, crecimiento y propósito compartido. Las hojas
+            reflejan la vida, la naturaleza y el cultivo responsable. Las formas
+            circulares simbolizan el trabajo en equipo y la visión a largo plazo.{' '}
+            <span className="font-semibold text-[var(--color-verde-hoja)]">
+              No es solo una inicial, es la unión de personas que construyen algo
+              más grande.
+            </span>
           </p>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2">
+      {/* ---------------------------------------------------------- el cultivo */}
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 md:grid-cols-2">
         <div>
-          <h2 className="text-3xl font-semibold">Un cultivo real, en San Ramón</h2>
+          <Eyebrow>
+            <span className="text-[var(--color-verde-bosque)]">El cultivo</span>
+          </Eyebrow>
+          <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
+            5.000 m² autorizados, por seis años
+          </h2>
           <p className="mt-6 text-lg leading-relaxed">
-            El primer cultivo está en San Isidro de San Ramón, sobre 5.000 m²
-            autorizados por el Ministerio de Agricultura y Ganadería mediante la
-            resolución <strong>RA-CA-MAG-DNEA-002-2026</strong>, con vigencia de
-            seis años.
+            El primer cultivo está en San Isidro de San Ramón, bajo la resolución{' '}
+            <strong>RA-CA-MAG-DNEA-002-2026</strong> del Ministerio de
+            Agricultura y Ganadería.
           </p>
           <p className="mt-4 leading-relaxed">
-            Trabajamos con manejo integrado de plagas a base de extractos
-            naturales —neem, ajo, chile, canela, jabón potásico—, riego por goteo
-            desde una fuente natural del terreno y compostaje de los residuos del
-            cultivo. Sin agroquímicos de alta toxicidad.
+            Manejo integrado de plagas con extractos naturales —neem, ajo, chile,
+            canela, jabón potásico—, riego por goteo desde una fuente natural del
+            terreno y compostaje de los residuos. Sin agroquímicos de alta
+            toxicidad.
           </p>
         </div>
 
-        <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
           <Image
             src="/fotos/rotulo-parcela.jpeg"
-            alt="La parcela autorizada en San Ramón, con el rótulo oficial de cáñamo industrial"
+            alt="La parcela autorizada con el rótulo oficial de cáñamo industrial y San Ramón al fondo"
             fill
-            sizes="(max-width: 768px) 100vw, 384px"
+            sizes="(max-width: 768px) 100vw, 560px"
             className="object-cover"
           />
         </div>
       </section>
 
-      <section className="bg-[var(--color-salvia)]/40">
-        <div className="mx-auto max-w-4xl px-4 py-16">
-          <h2 className="text-3xl font-semibold">
-            {otorgados} de las 9 actividades reguladas
+      {/* ---------------------------------------------------------- permisos */}
+      <section className="relative isolate overflow-hidden bg-[var(--color-negro)] text-[var(--color-beige)]">
+        <Image
+          src="/fotos/hero-terreno-atardecer.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover opacity-20"
+        />
+        <div className="mx-auto max-w-4xl px-4 py-24">
+          <Eyebrow>Marco regulatorio</Eyebrow>
+          <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
+            <span className="text-[var(--color-verde-hoja)]">{otorgados} de las 9</span>{' '}
+            actividades reguladas
           </h2>
-          <p className="mt-3 max-w-2xl leading-relaxed">
+          <p className="mt-5 max-w-2xl leading-relaxed text-[var(--color-salvia)]">
             La ley del cáñamo en Costa Rica regula nueve actividades. Nuestra
             autorización cubre siete. Las dos que faltan están identificadas y en
             camino.
           </p>
 
-          <ul className="mt-10 divide-y divide-[var(--color-verde-bosque)]/20 border-y border-[var(--color-verde-bosque)]/20">
+          <ul className="mt-12 divide-y divide-[var(--color-salvia)]/20 border-y border-[var(--color-salvia)]/20">
             {permisos.map((p) => {
-              const estado = ETIQUETA_ESTADO[p.estado]
+              const e = ESTADO[p.estado]
               return (
-                <li
-                  key={p.numero}
-                  className="flex items-center gap-4 py-4 text-sm sm:text-base"
-                >
-                  <span className="w-6 shrink-0 tabular-nums opacity-50">
-                    {p.numero}
+                <li key={p.numero} className="flex items-center gap-4 py-5">
+                  <span className="w-8 shrink-0 tabular-nums text-sm opacity-40">
+                    0{p.numero}
                   </span>
-                  <span className="flex-1 font-semibold">{p.actividad}</span>
-                  <span className="hidden w-28 shrink-0 opacity-60 sm:block">
+                  <span className="flex-1 text-lg">{p.actividad}</span>
+                  <span className="hidden w-32 shrink-0 text-sm opacity-50 sm:block">
                     {p.entidad}
                   </span>
-                  <span className={`w-24 shrink-0 text-right font-semibold ${estado.clase}`}>
-                    {estado.texto}
+                  <span className={`w-24 shrink-0 text-right text-sm font-semibold ${e.clase}`}>
+                    {e.texto}
                   </span>
                 </li>
               )
@@ -103,33 +133,42 @@ export default function PaginaNosotros() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-semibold">El equipo</h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-3">
-          {EQUIPO.map((p) => (
-            <li
-              key={p.nombre}
-              className="rounded-lg border border-[var(--color-salvia)] bg-white/40 p-6"
-            >
-              <p className="text-lg font-semibold">{p.nombre}</p>
-              <p className="mt-1 text-sm text-[var(--color-verde-bosque)]">{p.rol}</p>
-            </li>
-          ))}
-        </ul>
+      <Instituciones fondo="claro" />
+
+      {/* ------------------------------------------------------------ equipo */}
+      <section className="bg-[var(--color-salvia)]/30">
+        <div className="mx-auto max-w-6xl px-4 py-24">
+          <Eyebrow>
+            <span className="text-[var(--color-verde-bosque)]">El equipo</span>
+          </Eyebrow>
+          <ul className="mt-12 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-3">
+            {EQUIPO.map((p) => (
+              <li key={p.nombre} className="bg-[var(--color-beige)] p-8">
+                <p className="text-2xl font-semibold">{p.nombre}</p>
+                <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
+                  {p.rol}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
+      {/* ----------------------------------------------------- investigación */}
       <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto max-w-3xl px-4 py-16">
-          <h2 className="text-3xl font-semibold">Investigación</h2>
-          <p className="mt-6 text-lg leading-relaxed">
-            Un investigador de la Universidad de Costa Rica está desarrollando una
-            tesis alrededor de nuestro cultivo.
+        <div className="mx-auto max-w-4xl px-4 py-24">
+          <Eyebrow>Investigación</Eyebrow>
+          <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
+            Queremos que lo que decimos se pueda medir
+          </h2>
+          <p className="mt-8 text-lg leading-relaxed">
+            Un investigador de la Universidad de Costa Rica está desarrollando
+            una tesis alrededor de nuestro cultivo.
           </p>
-          <p className="mt-4 leading-relaxed text-[var(--color-salvia)]">
-            Nos interesa que lo que decimos se pueda medir. Los datos que salgan
-            de ese trabajo —captura de carbono, comportamiento del suelo,
-            rendimiento— son los que van a respaldar lo que publiquemos, en vez de
-            repetir cifras de folleto.
+          <p className="mt-5 text-lg leading-relaxed text-[var(--color-salvia)]">
+            Los datos que salgan de ese trabajo —captura de carbono,
+            comportamiento del suelo, rendimiento— son los que van a respaldar lo
+            que publiquemos, en vez de repetir cifras de folleto.
           </p>
         </div>
       </section>

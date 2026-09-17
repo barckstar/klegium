@@ -97,3 +97,20 @@ export type Permiso = z.infer<typeof permisoSchema>
 export function getPermisos(): Permiso[] {
   return cargar('permisos.json', z.array(permisoSchema).length(9))
 }
+
+/* -------------------------------------------------------------- instituciones */
+
+const institucionSchema = z.object({
+  id: z.string(),
+  nombre: z.string(),
+  sigla: z.string(),
+  /** La relación real, no un genérico "nos apoyan". */
+  relacion: z.string(),
+  logo: z.string().nullable(),
+})
+
+export type Institucion = z.infer<typeof institucionSchema>
+
+export function getInstituciones(): Institucion[] {
+  return cargar('instituciones.json', z.array(institucionSchema).min(1))
+}

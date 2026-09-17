@@ -1,23 +1,24 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import { Hero, Eyebrow } from '@/components/Hero'
+import { Instituciones } from '@/components/Instituciones'
 import { Formulario } from '@/features/formulario/Formulario'
 
 export const metadata: Metadata = {
   title: 'Semilla de cáñamo industrial certificada',
   description:
-    'Semilla de cáñamo industrial de variedades Futura 75 y Fedora 17, importada por la vía legal completa y con trazabilidad documental de cada lote.',
+    'Semilla de cáñamo industrial Futura 75 y Fedora 17, certificada en la Unión Europea, ingresada a Costa Rica por la vía legal completa y con trazabilidad documental de cada lote.',
 }
 
 const TRAZABILIDAD = [
   {
     titulo: 'Origen certificado',
     detalle:
-      'Variedades certificadas en la Unión Europea, importadas con certificado fitosanitario de la autoridad del país de origen.',
+      'Variedades certificadas en la Unión Europea, con certificado fitosanitario emitido por la autoridad del país de origen.',
   },
   {
     titulo: 'Importación legal completa',
     detalle:
-      'Registro de importador de productos de origen vegetal ante el Servicio Fitosanitario del Estado, con todos los trámites aduanales al día.',
+      'Registro de importador ante el Servicio Fitosanitario del Estado y trámites aduanales al día. Sin atajos.',
   },
   {
     titulo: 'Cadena documentada',
@@ -34,80 +35,78 @@ const TRAZABILIDAD = [
 export default function PaginaSemilla() {
   return (
     <>
-      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2">
-          <div>
-            <h1 className="text-4xl font-semibold sm:text-5xl">
-              Semilla con trazabilidad
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed">
-              Variedades <strong>Futura 75</strong> y <strong>Fedora 17</strong>,
-              certificadas en la Unión Europea e ingresadas a Costa Rica por la
-              vía legal completa.
-            </p>
-            <p className="mt-4 leading-relaxed text-[var(--color-salvia)]">
-              En un mercado donde el comprador se juega su propio permiso en cada
-              compra, la trazabilidad no es un adorno: es lo que hace que la
-              compra sea segura.
-            </p>
-          </div>
+      <Hero
+        imagen="/fotos/vivero-bolsas.jpg"
+        alt="Vivero de Klegium con bolsas de almácigo de cáñamo industrial en San Ramón"
+        prioridad
+      >
+        <Eyebrow>Futura 75 · Fedora 17</Eyebrow>
+        <h1 className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,7vw,4.5rem)] font-semibold leading-[1.02] text-[var(--color-beige)]">
+          Semilla que se puede rastrear
+        </h1>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-beige)]/90">
+          En un mercado donde el comprador se juega su propio permiso en cada
+          compra, la trazabilidad no es un adorno: es lo que hace que la compra
+          sea segura.
+        </p>
+      </Hero>
 
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg">
-            <Image
-              src="/fotos/siembra-bandejas.jpeg"
-              alt="Siembra de semilla de cáñamo en bandejas de germinación bajo malla de sombra"
-              fill
-              sizes="(max-width: 768px) 100vw, 384px"
-              className="object-cover"
-            />
-          </div>
+      <section className="mx-auto max-w-6xl px-4 py-24">
+        <Eyebrow>
+          <span className="text-[var(--color-verde-bosque)]">
+            Qué respalda nuestra semilla
+          </span>
+        </Eyebrow>
+
+        <div className="mt-12 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-2">
+          {TRAZABILIDAD.map((t, i) => (
+            <div key={t.titulo} className="bg-[var(--color-beige)] p-8 sm:p-10">
+              <span className="text-sm tabular-nums tracking-widest text-[var(--color-verde-bosque)]/60">
+                0{i + 1}
+              </span>
+              <h3 className="mt-4 text-2xl font-semibold text-[var(--color-verde-bosque)]">
+                {t.titulo}
+              </h3>
+              <p className="mt-3 leading-relaxed">{t.detalle}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-semibold">Qué respalda nuestra semilla</h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-          {TRAZABILIDAD.map((t) => (
-            <li
-              key={t.titulo}
-              className="rounded-lg border border-[var(--color-salvia)] bg-white/40 p-6"
-            >
-              <h3 className="font-semibold text-[var(--color-verde-bosque)]">
-                {t.titulo}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed">{t.detalle}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Sin el permiso de venta de semilla de la ONS no se puede vender. La
-          página informa y recoge interés; no ofrece precio ni compra. */}
-      <section className="bg-[var(--color-salvia)]/40">
-        <div className="mx-auto max-w-3xl px-4 py-16">
-          <h2 className="text-2xl font-semibold">
+      {/* Sin el permiso de venta de la ONS no se vende. La página informa y
+          recoge interés: no da precio ni ofrece compra. */}
+      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
+        <div className="mx-auto max-w-3xl px-4 py-24">
+          <Eyebrow>Importante</Eyebrow>
+          <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
             Todavía no estamos vendiendo semilla
           </h2>
-          <p className="mt-4 leading-relaxed">
+          <p className="mt-8 text-lg leading-relaxed">
             La venta de semilla para siembra es un régimen aparte, a cargo de la
             Oficina Nacional de Semillas, y ese permiso está en trámite. Hasta
-            que salga, no vendemos semilla ni damos precios.
+            que salga no vendemos semilla ni damos precios.
           </p>
-          <p className="mt-4 leading-relaxed">
-            Si le interesa, déjenos sus datos y le avisamos en cuanto podamos
+          <p className="mt-6 text-lg leading-relaxed text-[var(--color-salvia)]">
+            Si le interesa, déjenos sus datos y le avisamos apenas podamos
             vender. Antes de cualquier venta revisamos el permiso del comprador
             —así lo exige la ley y así lo hacemos.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-semibold">Avíseme cuando esté disponible</h2>
-        <div className="mt-10">
+      <section className="mx-auto max-w-6xl px-4 py-24">
+        <Eyebrow>
+          <span className="text-[var(--color-verde-bosque)]">Lista de espera</span>
+        </Eyebrow>
+        <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
+          Avíseme cuando esté disponible
+        </h2>
+
+        <div className="mt-12">
           <Formulario
             asunto="Interés en semilla"
             textoBoton="Dejar mis datos"
-            mensajeExito="Listo. Le avisamos en cuanto tengamos el permiso de venta de la ONS."
+            mensajeExito="Listo. Le avisamos apenas tengamos el permiso de venta de la ONS."
             campos={[
               { nombre: 'nombre', etiqueta: 'Nombre', requerido: true },
               { nombre: 'contacto', etiqueta: 'Correo o teléfono', requerido: true },
@@ -124,6 +123,8 @@ export default function PaginaSemilla() {
           />
         </div>
       </section>
+
+      <Instituciones fondo="claro" />
     </>
   )
 }

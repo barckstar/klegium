@@ -1,171 +1,183 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Hero, Eyebrow } from '@/components/Hero'
+import { Instituciones } from '@/components/Instituciones'
 
 const PILARES = [
-  { titulo: 'Cultivo sostenible', detalle: 'Manejo con extractos naturales, sin agroquímicos de alta toxicidad.' },
-  { titulo: 'Agricultura industrial', detalle: 'Cáñamo de variedades certificadas, bajo autorización del MAG.' },
-  { titulo: 'Innovación y desarrollo', detalle: 'Investigación aplicada sobre nuestro propio cultivo.' },
-  { titulo: 'Materiales y construcción', detalle: 'Cañamiza para materiales de construcción de baja huella.' },
-  { titulo: 'Visión global', detalle: 'Un modelo que empieza en San Ramón y puede crecer.' },
+  'Cultivo sostenible',
+  'Agricultura industrial',
+  'Innovación y desarrollo',
+  'Materiales y construcción',
+  'Visión global',
 ]
 
 const PUERTAS = [
   {
     href: '/canamiza',
+    numero: '01',
     titulo: 'Cañamiza triturada',
-    para: 'Caballerizas, fincas y agroveterinarias',
+    para: 'Caballerizas · Fincas · Agroveterinarias',
     detalle: 'Cama natural de cáñamo, con trazabilidad hasta la parcela.',
-    cta: 'Ver el producto',
   },
   {
     href: '/red',
+    numero: '02',
     titulo: 'Red de agricultores',
     para: 'Dueños de terreno en San Ramón',
-    detalle: 'Ponga su tierra a producir, con o sin involucrarse en el cultivo.',
-    cta: 'Cómo funciona',
+    detalle: 'Su tierra produciendo, con o sin que usted entre al cultivo.',
   },
   {
     href: '/semilla',
+    numero: '03',
     titulo: 'Semilla certificada',
     para: 'Permisionarios de cáñamo',
-    detalle: 'Futura 75 y Fedora 17, con trazabilidad documental completa.',
-    cta: 'Conocer más',
+    detalle: 'Futura 75 y Fedora 17, con respaldo documental de cada lote.',
   },
 ]
 
 export default function PaginaInicio() {
   return (
     <>
-      {/* ---------------------------------------------------------------- hero */}
-      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
-          <div>
-            <h1 className="text-5xl font-semibold tracking-[0.2em] sm:text-6xl">
-              KLEGIUM
-            </h1>
-            <p className="mt-4 text-lg text-[var(--color-verde-hoja)] sm:text-xl">
-              Cultivamos el presente, construimos el futuro.
-            </p>
-            <p className="mt-8 max-w-lg text-lg leading-relaxed">
-              Cáñamo industrial cultivado en San Isidro de San Ramón, Costa Rica,
-              con autorización del Ministerio de Agricultura y Ganadería y
-              trazabilidad completa desde la semilla.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/canamiza"
-                className="rounded bg-[var(--color-verde-hoja)] px-7 py-3 font-semibold text-[var(--color-verde-profundo)] transition-opacity hover:opacity-90"
-              >
-                Cañamiza para cama animal
-              </Link>
-              <Link
-                href="/red"
-                className="rounded border border-[var(--color-salvia)] px-7 py-3 font-semibold transition-colors hover:border-[var(--color-verde-hoja)] hover:text-[var(--color-verde-hoja)]"
-              >
-                Red de agricultores
-              </Link>
-            </div>
-          </div>
+      {/* ------------------------------------------------------------- hero */}
+      <Hero
+        imagen="/fotos/hero-terreno-atardecer.jpg"
+        alt="El terreno de cultivo de cáñamo en San Isidro de San Ramón al atardecer, con el valle al fondo"
+        prioridad
+      >
+        <h1 className="text-[clamp(2.75rem,11vw,7.5rem)] font-semibold leading-[0.95] tracking-[0.18em] text-[var(--color-beige)]">
+          KLEGIUM
+        </h1>
+        <p className="mt-6 max-w-2xl text-balance text-xl leading-snug text-[var(--color-verde-hoja)] sm:text-2xl">
+          Cultivamos el presente, construimos el futuro.
+        </p>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-beige)]/90">
+          Cáñamo industrial sembrado en San Isidro de San Ramón, Costa Rica.
+          Con autorización del MAG y trazabilidad completa desde la semilla.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/canamiza"
+            className="rounded-sm bg-[var(--color-verde-hoja)] px-8 py-4 font-semibold text-[var(--color-verde-profundo)] transition-transform hover:-translate-y-0.5"
+          >
+            Cañamiza para cama animal
+          </Link>
+          <Link
+            href="/red"
+            className="rounded-sm border border-[var(--color-beige)]/40 px-8 py-4 font-semibold text-[var(--color-beige)] backdrop-blur-sm transition-colors hover:border-[var(--color-verde-hoja)] hover:text-[var(--color-verde-hoja)]"
+          >
+            Tengo un terreno
+          </Link>
+        </div>
+      </Hero>
 
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg">
-            <Image
-              src="/fotos/rotulo-parcela.jpeg"
-              alt="Parcela de cáñamo industrial preparada en San Ramón, con el rótulo de autorización del MAG y el cantón al fondo"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 384px"
-              className="object-cover"
-            />
-          </div>
+      {/* ----------------------------------------------------------- origen */}
+      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
+        <div className="mx-auto max-w-4xl px-4 py-24 sm:py-32">
+          <Eyebrow>Nuestro origen</Eyebrow>
+          <p className="mt-10 text-balance text-2xl font-light leading-[1.5] sm:text-[2rem]">
+            Klegium nace de la unión de personas con una visión común. Cada uno
+            aporta su talento, su esfuerzo y su compromiso.{' '}
+            <span className="font-semibold text-[var(--color-verde-hoja)]">
+              Juntos cultivamos oportunidades y construimos un legado que
+              trascienda generaciones.
+            </span>
+          </p>
+
+          <ul className="mt-16 flex flex-wrap gap-x-8 gap-y-3 border-t border-[var(--color-salvia)]/25 pt-8 text-sm uppercase tracking-[0.15em] text-[var(--color-salvia)]">
+            {PILARES.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* -------------------------------------------------------------- origen */}
-      <section className="mx-auto max-w-3xl px-4 py-20 text-center">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-verde-bosque)]">
-          Nuestro origen
-        </h2>
-        <p className="mt-8 text-xl leading-relaxed sm:text-2xl">
-          Klegium nace de la unión de personas con una visión común. Cada uno
-          aporta su talento, su esfuerzo y su compromiso. Juntos cultivamos
-          oportunidades y construimos un legado que trascienda generaciones.
-        </p>
-      </section>
+      {/* --------------------------------------------------------- problema */}
+      <section className="relative isolate overflow-hidden bg-[var(--color-negro)] text-[var(--color-beige)]">
+        <Image
+          src="/fotos/cultivo-verde.jpg"
+          alt="Cultivo de cáñamo industrial en crecimiento"
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover opacity-25"
+        />
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
+          <Eyebrow>El problema que atacamos</Eyebrow>
 
-      {/* ------------------------------------------------------------ problema */}
-      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:items-center">
-          <div>
-            <p className="text-6xl font-semibold text-[var(--color-verde-hoja)] sm:text-7xl">
+          <div className="mt-12 grid gap-14 md:grid-cols-[auto_1fr] md:items-start md:gap-20">
+            <p className="text-[clamp(5rem,18vw,11rem)] font-semibold leading-[0.8] tracking-tight text-[var(--color-verde-hoja)]">
               37%
             </p>
-            <p className="mt-4 text-xl">
-              de las emisiones globales de CO₂ vienen de la industria de la
-              construcción.
-            </p>
-            <p className="mt-3 text-sm text-[var(--color-salvia)]">
-              UNEP / GlobalABC — Global Status Report for Buildings and
-              Construction 2025-2026. El mismo informe atribuye al sector casi
-              la mitad de la extracción global de materiales.
-            </p>
-          </div>
 
-          <div className="border-l-2 border-[var(--color-verde-hoja)] pl-6">
-            <p className="text-lg leading-relaxed">
-              El cáñamo captura entre <strong>8 y 15 toneladas de CO₂ por
-              hectárea</strong>. Un bosque captura entre 2 y 6 al año.
-            </p>
-            <p className="mt-4 leading-relaxed text-[var(--color-salvia)]">
-              Esa diferencia es la razón por la que este proyecto existe: no
-              sembrar una planta más, sino construir con ella una cadena
-              productiva que sustituya materiales de alta huella.
-            </p>
+            <div className="max-w-xl">
+              <p className="text-2xl leading-snug">
+                de las emisiones globales de CO₂ vienen de la industria de la
+                construcción. Y casi la mitad de toda la extracción de
+                materiales del planeta.
+              </p>
+              <p className="mt-6 text-sm leading-relaxed text-[var(--color-salvia)]">
+                UNEP / GlobalABC — <i>Global Status Report for Buildings and
+                Construction 2025-2026</i>
+              </p>
+
+              <div className="mt-10 border-l-2 border-[var(--color-verde-hoja)] pl-6">
+                <p className="text-lg leading-relaxed">
+                  El cáñamo captura entre{' '}
+                  <strong className="text-[var(--color-verde-hoja)]">
+                    8 y 15 toneladas de CO₂ por hectárea
+                  </strong>
+                  . Un bosque captura entre 2 y 6 al año.
+                </p>
+                <p className="mt-4 leading-relaxed text-[var(--color-salvia)]">
+                  Por eso existe este proyecto: no sembrar una planta más, sino
+                  construir con ella una cadena que sustituya materiales de alta
+                  huella.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* -------------------------------------------------------------- pilares */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="text-3xl font-semibold">En qué trabajamos</h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PILARES.map((p) => (
-            <li
-              key={p.titulo}
-              className="rounded-lg border border-[var(--color-salvia)] bg-white/40 p-6"
-            >
-              <h3 className="font-semibold text-[var(--color-verde-bosque)]">
-                {p.titulo}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed">{p.detalle}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* ---------------------------------------------------------- puertas */}
+      <section className="bg-[var(--color-beige)]">
+        <div className="mx-auto max-w-6xl px-4 py-24">
+          <Eyebrow>
+            <span className="text-[var(--color-verde-bosque)]">
+              Cómo trabajar con nosotros
+            </span>
+          </Eyebrow>
 
-      {/* -------------------------------------------------------------- puertas */}
-      <section className="bg-[var(--color-salvia)]/40">
-        <div className="mx-auto max-w-6xl px-4 py-20">
-          <h2 className="text-3xl font-semibold">Cómo trabajar con nosotros</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 border-t border-[var(--color-verde-bosque)]/25">
             {PUERTAS.map((p) => (
               <Link
                 key={p.href}
                 href={p.href}
-                className="group flex flex-col rounded-lg border border-[var(--color-verde-bosque)]/30 bg-[var(--color-beige)] p-7 transition-colors hover:border-[var(--color-verde-hoja)]"
+                className="group grid items-baseline gap-4 border-b border-[var(--color-verde-bosque)]/25 py-10 transition-colors hover:bg-[var(--color-salvia)]/25 md:grid-cols-[5rem_1fr_auto] md:gap-10"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
-                  {p.para}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold">{p.titulo}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed">{p.detalle}</p>
-                <span className="mt-6 font-semibold text-[var(--color-verde-bosque)] group-hover:text-[var(--color-verde-hoja)]">
-                  {p.cta} →
+                <span className="text-sm tabular-nums tracking-widest text-[var(--color-verde-bosque)]/60">
+                  {p.numero}
+                </span>
+
+                <div>
+                  <h3 className="text-3xl font-semibold transition-colors group-hover:text-[var(--color-verde-bosque)] sm:text-4xl">
+                    {p.titulo}
+                  </h3>
+                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
+                    {p.para}
+                  </p>
+                  <p className="mt-4 max-w-md leading-relaxed">{p.detalle}</p>
+                </div>
+
+                <span className="text-2xl text-[var(--color-verde-bosque)] transition-transform group-hover:translate-x-2">
+                  →
                 </span>
               </Link>
             ))}
           </div>
         </div>
       </section>
+
+      <Instituciones fondo="claro" />
     </>
   )
 }
