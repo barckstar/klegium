@@ -1,0 +1,41 @@
+{
+  "nombre": "Klegium",
+  "tagline": "Cultivamos el presente, construimos el futuro.",
+  "dominio": "klegium.com",
+  "actualizado": "2026-09-16",
+  "colores": [
+    { "token": "verde-profundo", "hex": "#1D2A1E", "rol": "dominante",  "uso": "Fondos oscuros, base" },
+    { "token": "verde-bosque",   "hex": "#2F6B3F", "rol": "secundario", "uso": "Color principal de marca" },
+    { "token": "verde-hoja",     "hex": "#7CB342", "rol": "acento",     "uso": "Llamadas a la acción, resaltados" },
+    { "token": "salvia",         "hex": "#B8C49A", "rol": "secundario", "uso": "Superficies suaves, apoyo" },
+    { "token": "beige",          "hex": "#D7D5C6", "rol": "dominante",  "uso": "Fondo claro, respiro" },
+    { "token": "negro",          "hex": "#1A1A1A", "rol": "texto",      "uso": "Texto principal" }
+  ],
+  "proporcion": { "dominante": 70, "secundario": 30, "acento": 10 },
+  "tipografia": {
+    "principal":  { "familia": "Montserrat", "peso": "600", "nombre": "Montserrat Semibold", "uso": "Nombre KLEGIUM, títulos" },
+    "secundaria": { "familia": "Montserrat", "peso": "400", "nombre": "Montserrat Regular",  "uso": "Cuerpo de texto" }
+  },
+  "logos": [
+    { "version": "principal",  "descripcion": "Isotipo + nombre",     "archivo": null },
+    { "version": "secundaria", "descripcion": "Variante secundaria",  "archivo": null },
+    { "version": "negativa",   "descripcion": "Sobre fondo oscuro",   "archivo": null },
+    { "version": "isotipo",    "descripcion": "Solo el símbolo",      "archivo": null }
+  ],
+  "categorias": [
+    "Cultivo sostenible",
+    "Agricultura industrial",
+    "Innovación y desarrollo",
+    "Materiales y construcción",
+    "Visión global"
+  ],
+  "divisiones_vision": [
+    "Klegium Seeds",
+    "Klegium Hemp",
+    "Klegium Fiber",
+    "Klegium Bio",
+    "Klegium Materials",
+    "Klegium Construction",
+    "Klegium Energy"
+  ]
+}
