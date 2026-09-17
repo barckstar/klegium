@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { getRed } from '@/lib/datos'
-import { Formulario } from '@/features/formulario/Formulario'
+import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
 export const metadata: Metadata = {
   title: 'Red de agricultores',
@@ -172,7 +172,7 @@ export default function PaginaRed() {
           </p>
 
           <div className="mt-12">
-            <Formulario
+            <BloqueFormulario
               asunto="Interés en la red de agricultores"
               textoBoton="Conversemos"
               mensajeExito="Recibimos sus datos. Nos ponemos en contacto para conversar sobre su terreno."

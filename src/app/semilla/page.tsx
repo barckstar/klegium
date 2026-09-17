@@ -3,19 +3,19 @@ import { Hero, Eyebrow } from '@/components/Hero'
 import Image from 'next/image'
 import { Instituciones } from '@/components/Instituciones'
 import { Revelar } from '@/components/Revelar'
-import { Formulario } from '@/features/formulario/Formulario'
+import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
 export const metadata: Metadata = {
   title: 'Semilla de cáñamo industrial certificada',
   description:
-    'Semilla de cáñamo industrial Futura 75 y Fedora 17, certificada en la Unión Europea, ingresada a Costa Rica por la vía legal completa y con trazabilidad documental de cada lote.',
+    'Semilla de cáñamo industrial variedad Futura 75, certificada en la Unión Europea, ingresada a Costa Rica por la vía legal completa y con trazabilidad documental de cada lote.',
 }
 
 const TRAZABILIDAD = [
   {
     titulo: 'Origen certificado',
     detalle:
-      'Variedades certificadas en la Unión Europea, con certificado fitosanitario emitido por la autoridad del país de origen.',
+      'Variedad certificada en la Unión Europea, con certificado fitosanitario emitido por la autoridad del país de origen.',
   },
   {
     titulo: 'Importación legal completa',
@@ -43,7 +43,7 @@ export default function PaginaSemilla() {
         prioridad
         deriva
       >
-        <Eyebrow>Futura 75 · Fedora 17</Eyebrow>
+        <Eyebrow>Variedad Futura 75</Eyebrow>
         <h1 className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,7vw,4.5rem)] font-semibold leading-[1.02] text-[var(--color-beige)]">
           Semilla que se puede rastrear
         </h1>
@@ -58,9 +58,9 @@ export default function PaginaSemilla() {
       <section className="bg-[var(--color-verde-hoja)] text-[var(--color-verde-profundo)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:grid-cols-3">
           {[
-            { dato: 'Futura 75', pie: 'Variedad certificada UE' },
-            { dato: 'Fedora 17', pie: 'Variedad certificada UE' },
+            { dato: 'Futura 75', pie: 'Variedad certificada en la Unión Europea' },
             { dato: '100%', pie: 'De los lotes con respaldo documental' },
+            { dato: 'Trazable', pie: 'De la variedad al lote, y del lote a la parcela' },
           ].map((x, i) => (
             <Revelar key={x.dato} retraso={i * 110}>
               <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -160,7 +160,7 @@ export default function PaginaSemilla() {
         </h2>
 
         <div className="mt-12">
-          <Formulario
+          <BloqueFormulario
             asunto="Interés en semilla"
             textoBoton="Dejar mis datos"
             mensajeExito="Listo. Le avisamos apenas tengamos el permiso de venta de la ONS."

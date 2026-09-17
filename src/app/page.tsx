@@ -4,6 +4,7 @@ import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { Instituciones } from '@/components/Instituciones'
 import { Certificaciones } from '@/components/Certificaciones'
+import { Fuentes } from '@/components/Fuentes'
 
 const PILARES = [
   'Cultivo sostenible',
@@ -20,13 +21,17 @@ const PUERTAS = [
     titulo: 'Cañamiza triturada',
     para: 'Caballerizas · Fincas · Agroveterinarias',
     detalle: 'Cama natural de cáñamo, con trazabilidad hasta la parcela.',
+    foto: '/fotos/canamiza-material.jpg',
+    fotoAlt: 'Cañamiza de cáñamo triturada, lista para usarse como cama animal',
   },
   {
     href: '/semilla',
     numero: '02',
     titulo: 'Semilla certificada',
     para: 'Permisionarios de cáñamo',
-    detalle: 'Futura 75 y Fedora 17, con respaldo documental de cada lote.',
+    detalle: 'Variedad Futura 75, con respaldo documental de cada lote.',
+    foto: '/fotos/almacigo-bandeja.jpg',
+    fotoAlt: 'Bandeja de germinación con plántulas de cáñamo recién brotadas',
   },
 ]
 
@@ -192,28 +197,44 @@ export default function PaginaInicio() {
             </p>
           </Revelar>
 
-          <div className="mt-16 grid gap-px bg-[var(--color-salvia)]/25 sm:grid-cols-2">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2">
             {[
               {
                 n: '01',
                 t: 'Usted presta el terreno',
                 d: 'Nosotros hacemos todo el trabajo. Usted recibe un pago por el uso de su tierra.',
+                foto: '/fotos/hero-terreno-atardecer.jpg',
+                alt: 'Terreno preparado para siembra en San Ramón, al atardecer',
               },
               {
                 n: '02',
                 t: 'Usted administra su terreno',
                 d: 'Lleva el cultivo en su propia tierra y nosotros le damos todo: semilla, insumos, acompañamiento y la compra de la cosecha.',
+                foto: '/fotos/trabajo-en-campo.jpg',
+                alt: 'Trabajo de preparación y siembra en el campo, en San Ramón',
               },
             ].map((m, i) => (
               <Revelar key={m.n} retraso={i * 140} className="h-full">
-                <div className="h-full bg-[var(--color-verde-profundo)] p-8 sm:p-10">
-                  <span className="text-sm tabular-nums tracking-widest text-[var(--color-salvia)]/60">
-                    {m.n}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-semibold text-[var(--color-verde-hoja)]">
-                    {m.t}
-                  </h3>
-                  <p className="mt-4 leading-relaxed">{m.d}</p>
+                <div className="group flex h-full flex-col overflow-hidden rounded-sm bg-[var(--color-verde-profundo)] ring-1 ring-[var(--color-salvia)]/20 transition-all duration-500 hover:-translate-y-1 hover:ring-[var(--color-verde-hoja)]/50">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={m.foto}
+                      alt={m.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 480px"
+                      className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/30 to-transparent" />
+                    <span className="absolute left-6 top-6 text-sm tabular-nums tracking-widest text-[var(--color-beige)]/70">
+                      {m.n}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-8 sm:p-10">
+                    <h3 className="text-2xl font-semibold text-[var(--color-verde-hoja)]">
+                      {m.t}
+                    </h3>
+                    <p className="mt-4 leading-relaxed">{m.d}</p>
+                  </div>
                 </div>
               </Revelar>
             ))}
@@ -239,28 +260,42 @@ export default function PaginaInicio() {
             </p>
           </Revelar>
 
-          <div className="mt-12 border-t border-[var(--color-verde-bosque)]/25">
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
             {PUERTAS.map((p, i) => (
-              <Revelar key={p.href} retraso={i * 120}>
+              <Revelar key={p.href} retraso={i * 140} className="h-full">
                 <Link
                   href={p.href}
-                  className="group grid items-baseline gap-4 border-b border-[var(--color-verde-bosque)]/25 py-10 transition-colors duration-300 hover:bg-[var(--color-salvia)]/25 md:grid-cols-[5rem_1fr_auto] md:gap-10"
+                  className="group flex h-full flex-col overflow-hidden rounded-sm bg-[var(--color-beige)] shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <span className="text-sm tabular-nums tracking-widest text-[var(--color-verde-bosque)]/60">
-                    {p.numero}
-                  </span>
-                  <div>
-                    <h3 className="text-3xl font-semibold transition-colors duration-300 group-hover:text-[var(--color-verde-bosque)] sm:text-4xl">
-                      {p.titulo}
-                    </h3>
-                    <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={p.foto}
+                      alt={p.fotoAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 560px"
+                      className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-verde-profundo)]/70 to-transparent" />
+                    <span className="absolute left-6 top-6 text-sm tabular-nums tracking-widest text-[var(--color-beige)]/70">
+                      {p.numero}
+                    </span>
+                    <p className="absolute inset-x-6 bottom-5 text-xs uppercase tracking-[0.2em] text-[var(--color-verde-hoja)]">
                       {p.para}
                     </p>
-                    <p className="mt-4 max-w-md leading-relaxed">{p.detalle}</p>
                   </div>
-                  <span className="text-2xl text-[var(--color-verde-bosque)] transition-transform duration-300 group-hover:translate-x-2">
-                    →
-                  </span>
+
+                  <div className="flex flex-1 flex-col p-8">
+                    <h3 className="text-3xl font-semibold transition-colors duration-300 group-hover:text-[var(--color-verde-bosque)]">
+                      {p.titulo}
+                    </h3>
+                    <p className="mt-4 flex-1 leading-relaxed">{p.detalle}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 font-semibold text-[var(--color-verde-bosque)]">
+                      Ver más
+                      <span className="transition-transform duration-300 group-hover:translate-x-2">
+                        →
+                      </span>
+                    </span>
+                  </div>
                 </Link>
               </Revelar>
             ))}
@@ -269,6 +304,7 @@ export default function PaginaInicio() {
       </section>
 
       <Certificaciones />
+      <Fuentes grupo="ambiental" fondo="claro" />
       <Instituciones fondo="claro" />
     </>
   )

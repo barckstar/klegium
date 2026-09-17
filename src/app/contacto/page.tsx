@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Revelar } from '@/components/Revelar'
-import { Formulario } from '@/features/formulario/Formulario'
+import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
 export const metadata: Metadata = {
   title: 'Contacto',
@@ -12,8 +10,7 @@ export const metadata: Metadata = {
 
 export default function PaginaContacto() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-14 px-4 py-16 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-20">
-      <div>
+    <div className="mx-auto max-w-6xl px-4 py-16">
       <h1 className="text-4xl font-semibold sm:text-5xl">Contacto</h1>
       <p className="mt-6 max-w-xl text-lg leading-relaxed">
         Déjenos sus datos y le respondemos.
@@ -37,7 +34,7 @@ export default function PaginaContacto() {
       </p>
 
       <div className="mt-12">
-        <Formulario
+        <BloqueFormulario
           asunto="Contacto general"
           textoBoton="Enviar mensaje"
           mensajeExito="Recibimos su mensaje. Le respondemos lo antes posible."
@@ -48,27 +45,6 @@ export default function PaginaContacto() {
           ]}
         />
       </div>
-      </div>
-
-      {/* Foto del equipo. Reemplazar por la de los tres en el campo cuando esté
-          en el proyecto; esta es del montaje del vivero. */}
-      <Revelar desde="derecha" retraso={150} className="lg:sticky lg:top-28 lg:self-start">
-        <figure>
-          <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
-            <Image
-              src="/fotos/equipo-campo.jpg"
-              alt="El equipo de Klegium trabajando en el montaje del vivero en San Isidro de San Ramón"
-              fill
-              sizes="(max-width: 1024px) 100vw, 416px"
-              className="object-cover"
-            />
-          </div>
-          <figcaption className="mt-4 text-sm leading-relaxed opacity-70">
-            Somos tres. Todo lo que ve en este sitio salió de este terreno, en
-            San Isidro de San Ramón.
-          </figcaption>
-        </figure>
-      </Revelar>
     </div>
   )
 }

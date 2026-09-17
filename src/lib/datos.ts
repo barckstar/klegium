@@ -146,3 +146,24 @@ export type Certificacion = z.infer<typeof certificacionSchema>
 export function getCertificaciones(): Certificacion[] {
   return cargar('certificaciones.json', z.array(certificacionSchema).min(1))
 }
+
+/* ----------------------------------------------------------------- fuentes */
+
+const fuenteSchema = z.object({
+  titulo: z.string(),
+  autor: z.string(),
+  url: z.string().url(),
+  /** Qué afirmación concreta respalda. Sin esto, la lista de enlaces no prueba nada. */
+  respalda: z.string(),
+})
+
+const fuentesSchema = z.object({
+  canamiza: z.array(fuenteSchema).min(1),
+  ambiental: z.array(fuenteSchema).min(1),
+})
+
+export type Fuente = z.infer<typeof fuenteSchema>
+
+export function getFuentes() {
+  return cargar('fuentes.json', fuentesSchema)
+}

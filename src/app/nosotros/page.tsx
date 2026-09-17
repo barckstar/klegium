@@ -108,8 +108,8 @@ export default function PaginaNosotros() {
 
         <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
           <Image
-            src="/fotos/rotulo-parcela.jpeg"
-            alt="La parcela autorizada con el rótulo oficial de cáñamo industrial y San Ramón al fondo"
+            src="/fotos/cultivo-hileras.jpg"
+            alt="Hileras de bolsas de siembra de cáñamo ordenadas sobre el terreno autorizado en San Isidro de San Ramón"
             fill
             sizes="(max-width: 768px) 100vw, 560px"
             className="object-cover"

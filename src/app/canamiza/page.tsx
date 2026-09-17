@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { getCanamiza, beneficiosPublicables } from '@/lib/datos'
-import { Formulario } from '@/features/formulario/Formulario'
+import { Fuentes } from '@/components/Fuentes'
+import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
 export const metadata: Metadata = {
   title: 'Cañamiza triturada para cama animal',
@@ -219,7 +220,8 @@ export default function PaginaCanamiza() {
 
           <Revelar retraso={150}>
             <div className="mt-12">
-              <Formulario
+              <BloqueFormulario
+                fondo="oscuro"
                 asunto="Cotización de cañamiza"
                 textoBoton="Solicitar cotización"
                 mensajeExito="Recibimos su solicitud. Le respondemos con la cotización lo antes posible."
@@ -252,6 +254,8 @@ export default function PaginaCanamiza() {
           </Revelar>
         </div>
       </section>
+
+      <Fuentes grupo="canamiza" fondo="claro" />
     </>
   )
 }
