@@ -207,13 +207,15 @@ export default function PaginaNosotros() {
 
           <Revelar retraso={120}>
             <figure className="mt-10">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm sm:aspect-[16/9]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[4/3] lg:aspect-[16/10]">
                 <Image
                   src="/fotos/los-tres.jpg"
                   alt="Los tres fundadores de Klegium en el terreno de cultivo de San Isidro de San Ramón"
                   fill
                   sizes="(max-width: 1024px) 100vw, 1152px"
-                  className="object-cover object-top"
+                  /* La foto es vertical y la gente está en el tercio inferior:
+                     sin este punto focal el recorte ancho se queda con el cielo. */
+                  className="object-cover [object-position:50%_72%]"
                 />
               </div>
               <figcaption className="mt-4 text-sm leading-relaxed opacity-70">
