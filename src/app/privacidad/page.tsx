@@ -1,10 +1,13 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 
-export const metadata: Metadata = {
-  title: 'Política de privacidad',
-  description:
-    'Qué datos recoge Klegium en sus formularios, para qué los usa y cómo pedir que se borren.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Política de privacidad',
+  descripcion:
+    'Qué datos recoge Klegium en sus formularios, para qué los usa y cómo pedir que se borren en cualquier momento.',
+  ruta: '/privacidad',
+})
+
+
 
 export default function PaginaPrivacidad() {
   return (

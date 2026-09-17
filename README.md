@@ -9,6 +9,10 @@ Cáñamo industrial. San Isidro de San Ramón, Alajuela, Costa Rica.
 
 ## Reglas que no se rompen
 
+- **Los metadatos salen de `metadatosDe()`**, en `src/lib/sitio.ts`. Nunca se escribe un
+  objeto `metadata` a mano en una página: en Next el `openGraph` de la página reemplaza al
+  del layout, así que hacerlo a mano deja la página sin `og:image` y el enlace se ve roto
+  al compartirlo.
 - **Los colores salen de `brand.json`.** Para cambiar uno se cambia ahí y se corre
   `npm run tokens`. Nunca se escribe un hex a mano en un componente.
   `src/styles/tokens.css` es generado y está en `.gitignore`.
@@ -43,6 +47,12 @@ Cáñamo industrial. San Isidro de San Ramón, Alajuela, Costa Rica.
 | `npm run dev` | Desarrollo |
 | `npm run build` | Build de producción |
 | `npm run tokens` | Regenera los tokens CSS desde `brand.json` |
+| `npm run verificar` | Revisa metadatos e iconos sobre el HTML generado |
+
+El `verificar` corre solo después de cada `npm run build` (`postbuild`) y **falla el
+build** si a una página le falta título, descripción, canónica, Open Graph, Twitter Card,
+idioma, su único `h1` o el `alt` de una imagen. También comprueba que existan los cinco
+iconos. Revisa el HTML que de verdad se sirve, no el código fuente.
 
 ## 🔴 Falta antes de publicar
 
@@ -61,7 +71,8 @@ Cáñamo industrial. San Isidro de San Ramón, Alajuela, Costa Rica.
 
 ## Deuda conocida
 
-- **Sin tests.** Se decidió dejarlos para después: es un MVP y el `build` ya hace de
+- **Sin tests de componentes.** Sí hay una verificación automática de metadatos e iconos
+  (`npm run verificar`, enganchada al `postbuild`). Se decidió dejarlos para después: es un MVP y el `build` ya hace de
   red —type-check más render estático de todas las rutas, así que un componente roto
   no compila. Lo que sí conviene cubrir cuando haya con qué correrlos:
   el filtro de `requiereFuente` (es el que impide publicar afirmaciones sin respaldo),

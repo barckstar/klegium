@@ -1,12 +1,14 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import Link from 'next/link'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
-export const metadata: Metadata = {
-  title: 'Contacto',
-  description:
-    'Escríbanos sobre cañamiza, la red de agricultores, semilla o el proyecto de cáñamo industrial en San Ramón, Costa Rica.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Contacto',
+  descripcion:
+    'Escríbanos sobre cañamiza, la red de agricultores o el proyecto de cáñamo industrial en San Ramón, Costa Rica.',
+  ruta: '/contacto',
+})
+
 
 export default function PaginaContacto() {
   return (

@@ -1,14 +1,17 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { Faq, FaqJsonLd } from '@/components/Faq'
 import { MarcoLegal } from '@/components/MarcoLegal'
 
-export const metadata: Metadata = {
-  title: 'Preguntas frecuentes',
-  description:
-    'Ley del cáñamo en Costa Rica, cómo funciona la red de agricultores, cañamiza para cama animal y venta de semilla. Las preguntas que más nos hacen, respondidas.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Preguntas frecuentes',
+  descripcion:
+    'La ley del cáñamo en Costa Rica, cómo funciona la red de agricultores, la cañamiza y la venta de semilla, respondidas.',
+  ruta: '/preguntas',
+})
+
+
 
 export default function PaginaPreguntas() {
   return (

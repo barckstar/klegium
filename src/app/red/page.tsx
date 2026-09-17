@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
@@ -6,11 +6,13 @@ import { Faq, FaqJsonLd } from '@/components/Faq'
 import { getRed, getRequisitos, colones } from '@/lib/datos'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
-export const metadata: Metadata = {
-  title: 'Red de agricultores',
-  description:
-    'Su terreno de San Ramón puede volver a producir. Dos formas de sumarse a la red de cáñamo industrial de Klegium, con las reglas y los requisitos por delante.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Red de agricultores',
+  descripcion:
+    'Su terreno de San Ramón puede volver a producir. Dos formas de sumarse, con los requisitos y las reglas por delante.',
+  ruta: '/red',
+})
+
 
 export default function PaginaRed() {
   const { modalidades, publicarPrecio, loQueNoEs, responsabilidad } = getRed()

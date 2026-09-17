@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
@@ -7,11 +7,13 @@ import { Faq, FaqJsonLd } from '@/components/Faq'
 import { Fuentes } from '@/components/Fuentes'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
-export const metadata: Metadata = {
-  title: 'Cañamiza triturada para cama animal',
-  description:
-    'Cañamiza de cáñamo industrial cultivado en San Ramón, Costa Rica. Cama natural para caballos, ganado, aves y conejos, con trazabilidad hasta la parcela. Solicite su cotización.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Cañamiza triturada para cama animal',
+  descripcion:
+    'Cama natural de cáñamo cultivado en San Ramón, Costa Rica. Para caballos, ganado, aves y conejos, con trazabilidad hasta la parcela.',
+  ruta: '/canamiza',
+})
+
 
 export default function PaginaCanamiza() {
   const datos = getCanamiza()

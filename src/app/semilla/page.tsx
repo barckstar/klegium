@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import { Hero, Eyebrow } from '@/components/Hero'
 import Image from 'next/image'
 import { Instituciones } from '@/components/Instituciones'
@@ -7,11 +7,13 @@ import { Faq, FaqJsonLd } from '@/components/Faq'
 import { MarcoLegal } from '@/components/MarcoLegal'
 import { BloqueFormulario } from '@/features/formulario/BloqueFormulario'
 
-export const metadata: Metadata = {
-  title: 'Semilla de cáñamo industrial certificada',
-  description:
-    'Semilla de cáñamo industrial variedad Futura 75, certificada en la Unión Europea, ingresada a Costa Rica por la vía legal completa y con trazabilidad documental de cada lote.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Semilla de cáñamo industrial certificada',
+  descripcion:
+    'Variedad Futura 75, certificada en la Unión Europea e ingresada a Costa Rica por la vía legal, con trazabilidad de cada lote.',
+  ruta: '/semilla',
+})
+
 
 const TRAZABILIDAD = [
   {

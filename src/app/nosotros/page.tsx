@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { metadatosDe } from '@/lib/sitio'
 import Image from 'next/image'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Instituciones } from '@/components/Instituciones'
@@ -6,11 +6,13 @@ import { Certificaciones } from '@/components/Certificaciones'
 import { Revelar } from '@/components/Revelar'
 import { getPermisos } from '@/lib/datos'
 
-export const metadata: Metadata = {
-  title: 'Nosotros',
-  description:
-    'Klegium cultiva cáñamo industrial en San Isidro de San Ramón con autorización del MAG. Quiénes somos, qué permisos tenemos y qué estamos investigando.',
-}
+export const metadata = metadatosDe({
+  titulo: 'Nosotros',
+  descripcion:
+    'Klegium cultiva cáñamo industrial en San Isidro de San Ramón con autorización del MAG. Quiénes somos y qué permisos tenemos.',
+  ruta: '/nosotros',
+})
+
 
 const EQUIPO = [
   {
