@@ -176,13 +176,13 @@ export default function PaginaNosotros() {
           <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {GALERIA.map((g, i) => (
               <Revelar key={g.src} retraso={i * 80} desde="escala">
-                <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+                <div className="group relative aspect-[3/4] overflow-hidden recorte-limpio rounded-sm">
                   <Image
                     src={g.src}
                     alt={g.alt}
                     fill
                     sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                    className="object-cover scale-[1.01] transition-transform duration-[900ms] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-[var(--color-verde-profundo)]/0 transition-colors duration-500 group-hover:bg-[var(--color-verde-profundo)]/25" />
                 </div>
@@ -228,14 +228,14 @@ export default function PaginaNosotros() {
             {EQUIPO.map((persona, i) => (
               <Revelar key={persona.nombre} retraso={i * 120} className="h-full">
                 <li className="group h-full overflow-hidden rounded-sm bg-[var(--color-beige)] shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-verde-profundo)]">
+                  <div className="relative aspect-[4/5] overflow-hidden recorte-limpio bg-[var(--color-verde-profundo)]">
                     {persona.foto ? (
                       <Image
                         src={persona.foto}
                         alt={persona.nombre}
                         fill
                         sizes="(max-width: 640px) 100vw, 380px"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover scale-[1.01] transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
                       <div className="flex h-full flex-col items-center justify-center gap-3">

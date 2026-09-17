@@ -77,3 +77,13 @@ body {
     animation: none;
   }
 }
+
+/* Al escalar una imagen dentro de un contenedor con overflow-hidden, el
+   redondeo de subpíxeles deja asomar una línea de 1px en el borde durante la
+   animación. Forzar una capa propia de composición hace que el recorte sea
+   exacto, y `backface-visibility` evita el mismo artefacto en WebKit. */
+.recorte-limpio {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

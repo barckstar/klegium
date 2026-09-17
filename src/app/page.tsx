@@ -216,13 +216,13 @@ export default function PaginaInicio() {
             ].map((m, i) => (
               <Revelar key={m.n} retraso={i * 140} className="h-full">
                 <div className="group flex h-full flex-col overflow-hidden rounded-sm bg-[var(--color-verde-profundo)] ring-1 ring-[var(--color-salvia)]/20 transition-all duration-500 hover:-translate-y-1 hover:ring-[var(--color-verde-hoja)]/50">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden recorte-limpio">
                     <Image
                       src={m.foto}
                       alt={m.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, 480px"
-                      className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                      className="object-cover scale-[1.01] transition-transform duration-[900ms] ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/30 to-transparent" />
                     <span className="absolute left-6 top-6 text-sm tabular-nums tracking-widest text-[var(--color-beige)]/70">
@@ -267,13 +267,13 @@ export default function PaginaInicio() {
                   href={p.href}
                   className="group flex h-full flex-col overflow-hidden rounded-sm bg-[var(--color-beige)] shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden recorte-limpio">
                     <Image
                       src={p.foto}
                       alt={p.fotoAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, 560px"
-                      className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                      className="object-cover scale-[1.01] transition-transform duration-[900ms] ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-verde-profundo)]/70 to-transparent" />
                     <span className="absolute left-6 top-6 text-sm tabular-nums tracking-widest text-[var(--color-beige)]/70">

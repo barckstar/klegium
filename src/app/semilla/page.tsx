@@ -140,13 +140,13 @@ export default function PaginaSemilla() {
               ['/fotos/cultivo-verde.jpg', 'Cultivo de cáñamo establecido'],
             ].map(([src, alt], i) => (
               <Revelar key={src} retraso={i * 90} desde="escala">
-                <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+                <div className="group relative aspect-[3/4] overflow-hidden recorte-limpio rounded-sm">
                   <Image
                     src={src}
                     alt={alt}
                     fill
                     sizes="(max-width: 640px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-[900ms] group-hover:scale-110"
+                    className="object-cover scale-[1.01] transition-transform duration-[900ms] group-hover:scale-110"
                   />
                 </div>
               </Revelar>
