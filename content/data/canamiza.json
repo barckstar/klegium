@@ -1,0 +1,62 @@
+{
+  "nombre": "Cañamiza triturada",
+  "subtitulo": "Cama natural para animales, de cáñamo industrial costarricense",
+  "descripcion": "La cañamiza —o hurd— es el núcleo leñoso del tallo del cáñamo industrial. La cultivamos y procesamos en San Isidro de San Ramón, sin químicos ni aditivos, y cada lote se puede rastrear hasta la parcela donde creció.",
+  "beneficios": [
+    {
+      "id": "natural",
+      "titulo": "100% natural",
+      "detalle": "Sin químicos ni aditivos. Solo el tallo de la planta, triturado.",
+      "requiereFuente": false
+    },
+    {
+      "id": "trazable",
+      "titulo": "Trazabilidad completa",
+      "detalle": "Cada lote se rastrea hasta la parcela, la variedad y la fecha de cosecha.",
+      "requiereFuente": false
+    },
+    {
+      "id": "compostable",
+      "titulo": "Compostable",
+      "detalle": "Al final de su uso vuelve al suelo como materia orgánica.",
+      "requiereFuente": false
+    },
+    {
+      "id": "local",
+      "titulo": "Producción costarricense",
+      "detalle": "Cultivada y procesada en San Ramón, bajo autorización del MAG.",
+      "requiereFuente": false
+    },
+    {
+      "id": "absorcion",
+      "titulo": "Ultra absorbente",
+      "detalle": "Absorbe 4-5 veces su peso en líquidos.",
+      "requiereFuente": true
+    },
+    {
+      "id": "amoniaco",
+      "titulo": "Control de amoníaco y olor",
+      "detalle": "Mantiene el ambiente del establo más fresco.",
+      "requiereFuente": true
+    },
+    {
+      "id": "respiratoria",
+      "titulo": "Menos polvo",
+      "detalle": "Reduce el polvo respecto a otras camas.",
+      "requiereFuente": true
+    },
+    {
+      "id": "antibacteriano",
+      "titulo": "Antibacteriano natural",
+      "detalle": "Ambiente más higiénico para el animal.",
+      "requiereFuente": true
+    }
+  ],
+  "publicos": [
+    "Caballerizas",
+    "Fincas ganaderas",
+    "Aves",
+    "Conejos y pequeños animales",
+    "Agroveterinarias"
+  ]
+}

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # generado desde brand.json
 src/styles/tokens.css
+
+# entorno local
+.env.local

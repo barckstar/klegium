@@ -1,0 +1,47 @@
+{
+  "modalidades": [
+    {
+      "id": "arrendamiento",
+      "nombre": "Usted presta el terreno",
+      "resumen": "Nosotros hacemos todo el trabajo. Usted recibe un pago por el uso de su tierra.",
+      "aporta": [
+        "El derecho de uso del terreno, mediante un contrato formal",
+        "Nada más: no participa en las labores ni asume el riesgo del cultivo"
+      ],
+      "recibe": [
+        "Una contraprestación acordada por el uso del inmueble",
+        "Un terreno puesto en producción sin invertir tiempo ni dinero"
+      ],
+      "aCargoDeKlegium": [
+        "La autorización, la semilla y el material propagativo",
+        "La siembra, el manejo y la cosecha",
+        "Los registros, la trazabilidad y el destino de la producción"
+      ]
+    },
+    {
+      "id": "suscripcion",
+      "nombre": "Usted administra su terreno",
+      "resumen": "Usted lleva el cultivo en su propia tierra y nosotros le damos todo lo que necesita, con acompañamiento en campo.",
+      "aporta": [
+        "El terreno y el trabajo de administrarlo",
+        "Una suscripción que cubre el paquete completo"
+      ],
+      "recibe": [
+        "Semilla y plántulas",
+        "Insumos, riego e iluminación cuando corresponda",
+        "Acompañamiento técnico y capacitación durante todo el ciclo",
+        "La compra de la cosecha ya contemplada en el paquete"
+      ],
+      "aCargoDeKlegium": [
+        "La autorización y la titularidad de la producción",
+        "La asistencia técnica y la supervisión periódica",
+        "Los registros y la trazabilidad del lote"
+      ]
+    }
+  ],
+  "loQueNoEs": [
+    "No es una franquicia ni una autorización que se comparte.",
+    "Participar en la red no lo convierte en productor autorizado de cáñamo: la titularidad de la producción y la responsabilidad ante el MAG quedan siempre en Klegium.",
+    "No entregamos semilla para que alguien siembre por su cuenta bajo nuestra autorización."
+  ]
+}
