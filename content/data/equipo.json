@@ -1,0 +1,8 @@
+{
+  "fundadores": [
+    { "nombre": "Kevin Rodríguez", "rol": "Fundador", "oficios": ["Empresario"] },
+    { "nombre": "Emanuel", "rol": "Cofundador", "oficios": ["Empresario"] },
+    { "nombre": "Leonel Castro", "rol": "Cofundador", "oficios": ["Empresario", "Ingeniero en sistemas"] }
+  ],
+  "expertos": []
+}

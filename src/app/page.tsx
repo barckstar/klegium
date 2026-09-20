@@ -15,13 +15,11 @@ const PILARES = [
 ]
 
 export default function PaginaInicio() {
-  const { beneficios } = getRed()
+  const { propuesta, impactos } = getRed()
 
   return (
     <>
-      {/* ------------------------------------------------------------- hero
-          Solo la marca. Sin párrafo ni botones: el título abre, el video corre
-          detrás, y quien quiera seguir baja. */}
+      {/* ------------------------------------------------------------- hero */}
       <section className="relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden bg-[var(--color-verde-profundo)]">
         <VideoFondo
           src="/video/cultivo.mp4"
@@ -30,8 +28,13 @@ export default function PaginaInicio() {
         />
         <div className="absolute inset-0 -z-10 bg-[var(--color-negro)]/45" />
         <div className="vineta absolute inset-0 -z-10" />
+        {/* Degradado inferior: funde el video con la sección siguiente en vez
+            de cortarlo con una línea dura. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-b from-transparent to-[var(--color-verde-profundo)]"
+        />
 
-        {/* telón que se retira */}
         <div
           aria-hidden="true"
           className="cine-telon-arriba absolute inset-x-0 top-0 z-10 h-1/2 bg-[var(--color-verde-profundo)]"
@@ -87,7 +90,59 @@ export default function PaginaInicio() {
         </div>
       </section>
 
-      {/* --------------------------------------------------------- problema */}
+      {/* ------------------------------------ la propuesta: reactivación */}
+      <section className="relative isolate overflow-hidden bg-[var(--color-beige)]">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
+          <Revelar>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
+              {propuesta.eyebrow}
+            </p>
+            <h2 className="mt-6 max-w-4xl text-balance text-[clamp(2rem,5.5vw,3.5rem)] font-semibold leading-[1.06]">
+              {propuesta.titulo}
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed">
+              {propuesta.entrada}
+            </p>
+          </Revelar>
+
+          <Revelar retraso={150}>
+            <ol className="mt-14 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-3 lg:grid-cols-6">
+              {propuesta.cadena.map((etapa, i) => (
+                <li key={etapa} className="bg-[var(--color-beige)] px-4 py-7 text-center">
+                  <span className="block text-xs tabular-nums tracking-widest text-[var(--color-verde-bosque)]/50">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="mt-2 block font-semibold">{etapa}</span>
+                </li>
+              ))}
+            </ol>
+          </Revelar>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2">
+            {impactos.slice(0, 2).map((im, i) => (
+              <Revelar key={im.id} retraso={i * 140} className="h-full">
+                <article className="h-full rounded-sm bg-[var(--color-salvia)]/30 p-8">
+                  <h3 className="text-2xl font-semibold text-[var(--color-verde-bosque)]">
+                    {im.titulo}
+                  </h3>
+                  <p className="mt-3 leading-relaxed">{im.resumen}</p>
+                </article>
+              </Revelar>
+            ))}
+          </div>
+
+          <Revelar retraso={280}>
+            <Link
+              href="/red"
+              className="mt-12 inline-block rounded-sm bg-[var(--color-verde-bosque)] px-8 py-4 font-semibold text-[var(--color-beige)] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Conocer la propuesta
+            </Link>
+          </Revelar>
+        </div>
+      </section>
+
+      {/* ------------------------------ por qué el cáñamo: ambiental */}
       <section className="relative isolate overflow-hidden bg-[var(--color-negro)] text-[var(--color-beige)]">
         <Image
           src="/fotos/cultivo-verde.jpg"
@@ -100,11 +155,14 @@ export default function PaginaInicio() {
         <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
           <Revelar>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">
-              El problema que atacamos
+              Por qué el cáñamo
             </p>
+            <h2 className="mt-6 max-w-3xl text-balance text-3xl font-semibold leading-tight sm:text-4xl">
+              Una alternativa a los materiales de construcción convencionales
+            </h2>
           </Revelar>
 
-          <div className="mt-12 grid gap-14 md:grid-cols-[auto_1fr] md:items-start md:gap-20">
+          <div className="mt-14 grid gap-14 md:grid-cols-[auto_1fr] md:items-start md:gap-20">
             <Revelar desde="izquierda">
               <p className="text-[clamp(5rem,18vw,11rem)] font-semibold leading-[0.8] tracking-tight text-[var(--color-verde-hoja)]">
                 37%
@@ -114,9 +172,9 @@ export default function PaginaInicio() {
             <Revelar desde="derecha" retraso={150}>
               <div className="max-w-xl">
                 <p className="text-2xl leading-snug">
-                  de las emisiones globales de CO₂ vienen de la industria de la
-                  construcción. Y casi la mitad de toda la extracción de
-                  materiales del planeta.
+                  de las emisiones globales de CO₂ provienen de la industria de
+                  la construcción, que además concentra cerca de la mitad de la
+                  extracción mundial de materiales.
                 </p>
                 <p className="mt-6 text-sm leading-relaxed text-[var(--color-salvia)]">
                   UNEP / GlobalABC — <i>Global Status Report for Buildings and
@@ -129,12 +187,13 @@ export default function PaginaInicio() {
                     <strong className="text-[var(--color-verde-hoja)]">
                       8 y 15 toneladas de CO₂ por hectárea
                     </strong>
-                    . Un bosque captura entre 2 y 6 al año.
+                    , frente a las 2 a 6 toneladas anuales que captura una
+                    hectárea de bosque.
                   </p>
                   <p className="mt-4 leading-relaxed text-[var(--color-salvia)]">
-                    Por eso existe este proyecto: no sembrar una planta más, sino
-                    construir con ella una cadena que sustituya materiales de
-                    alta huella.
+                    Una de nuestras líneas de desarrollo es el aprovechamiento de
+                    la cañamiza en paneles y materiales constructivos, sujeto a
+                    los requisitos técnicos y regulatorios aplicables.
                   </p>
                 </div>
               </div>
@@ -143,68 +202,12 @@ export default function PaginaInicio() {
         </div>
       </section>
 
-      {/* ------------------------------------------ red de agricultores */}
-      <section className="relative isolate overflow-hidden bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <Image
-          src="/fotos/plantas-desde-abajo.jpg"
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="100vw"
-          className="-z-10 object-cover object-center opacity-45"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/85 to-[var(--color-verde-profundo)]/40" />
-
-        <div className="mx-auto max-w-6xl px-4 py-28 sm:py-36">
-          <Revelar>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">
-              Una invitación · San Ramón
-            </p>
-            <h2 className="mt-6 max-w-3xl text-balance text-[clamp(2.25rem,6.5vw,4.25rem)] font-semibold leading-[1.03]">
-              Su terreno puede volver a producir
-            </h2>
-            <p className="mt-8 max-w-xl text-xl leading-relaxed">
-              Hay tierra parada en el cantón.{' '}
-              <span className="text-[var(--color-verde-hoja)]">
-                Puede ser parte de una actividad nueva que deje beneficio acá.
-              </span>
-            </p>
-          </Revelar>
-
-          <div className="mt-16 grid gap-px bg-[var(--color-salvia)]/25 md:grid-cols-3">
-            {beneficios.map((b, i) => (
-              <Revelar key={b.id} retraso={i * 140} className="h-full">
-                <div className="h-full bg-[var(--color-verde-profundo)] p-8">
-                  <p className="text-3xl font-semibold text-[var(--color-verde-hoja)]">
-                    {b.dato}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--color-salvia)]">
-                    {b.datoPie}
-                  </p>
-                  <h3 className="mt-6 text-xl font-semibold">{b.titulo}</h3>
-                  <p className="mt-3 leading-relaxed">{b.detalle}</p>
-                </div>
-              </Revelar>
-            ))}
-          </div>
-
-          <Revelar retraso={280}>
-            <Link
-              href="/red"
-              className="mt-12 inline-block rounded-sm bg-[var(--color-verde-hoja)] px-8 py-4 font-semibold text-[var(--color-verde-profundo)] transition-transform duration-300 hover:-translate-y-1"
-            >
-              Conocer más
-            </Link>
-          </Revelar>
-        </div>
-      </section>
-
       {/* ---------------------------------------------------------- producto */}
       <section className="bg-[var(--color-beige)]">
         <div className="mx-auto max-w-6xl px-4 py-24">
           <Revelar>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
-              Lo que vendemos
+              Línea comercial
             </p>
           </Revelar>
 
@@ -213,13 +216,13 @@ export default function PaginaInicio() {
               href="/canamiza"
               className="group mt-12 grid overflow-hidden rounded-sm bg-[var(--color-salvia)]/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:grid-cols-2"
             >
-              <div className="relative aspect-[16/10] overflow-hidden recorte-limpio md:aspect-auto">
+              <div className="recorte-limpio relative aspect-[16/10] overflow-hidden md:aspect-auto">
                 <Image
                   src="/fotos/canamiza-material.jpg"
-                  alt="Cañamiza de cáñamo triturada, lista para usarse como cama animal"
+                  alt="Cañamiza de cáñamo industrial triturada, destinada a cama animal"
                   fill
                   sizes="(max-width: 768px) 100vw, 576px"
-                  className="object-cover scale-[1.01] transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                  className="scale-[1.01] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                 />
               </div>
               <div className="flex flex-col justify-center p-8 sm:p-12">
@@ -228,8 +231,8 @@ export default function PaginaInicio() {
                 </p>
                 <h3 className="mt-4 text-4xl font-semibold">Cañamiza triturada</h3>
                 <p className="mt-5 leading-relaxed">
-                  Cama natural de cáñamo, cultivada y procesada en San Ramón, con
-                  trazabilidad hasta la parcela.
+                  Material de cama para animales, cultivado y procesado en San
+                  Ramón, con trazabilidad documentada de cada lote.
                 </p>
                 <span className="mt-8 inline-flex items-center gap-2 font-semibold text-[var(--color-verde-bosque)]">
                   Ver el producto

@@ -79,16 +79,22 @@ export function beneficiosPublicables(datos: Canamiza): Beneficio[] {
 
 /* ----------------------------------------------------------------------- red */
 
-const beneficioRedSchema = z.object({
+const impactoSchema = z.object({
   id: z.string(),
   titulo: z.string(),
-  detalle: z.string(),
-  dato: z.string(),
-  datoPie: z.string(),
+  resumen: z.string(),
+  puntos: z.array(z.string()).min(1),
 })
 
 const redSchema = z.object({
-  beneficios: z.array(beneficioRedSchema).min(1),
+  propuesta: z.object({
+    eyebrow: z.string(),
+    titulo: z.string(),
+    entrada: z.string(),
+    cadena: z.array(z.string()).min(2),
+    cierre: z.string(),
+  }),
+  impactos: z.array(impactoSchema).min(1),
   consulta: z.object({
     titulo: z.string(),
     entrada: z.string(),
@@ -168,3 +174,22 @@ export function getFaq(): GrupoFaq[] {
   return cargar('faq.json', faqSchema)
 }
 
+
+/* ------------------------------------------------------------------- equipo */
+
+const personaSchema = z.object({
+  nombre: z.string(),
+  rol: z.string(),
+  oficios: z.array(z.string()),
+})
+
+const equipoSchema = z.object({
+  fundadores: z.array(personaSchema).min(1),
+  /** Asesoría especializada en cáñamo. Vacío mientras no haya nombres
+   *  confirmados: la sección no se renderiza si está vacía. */
+  expertos: z.array(personaSchema),
+})
+
+export function getEquipo() {
+  return cargar('equipo.json', equipoSchema)
+}

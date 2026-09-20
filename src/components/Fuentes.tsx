@@ -33,11 +33,11 @@ export function Fuentes({
           Fuentes
         </p>
         <h2 className="mt-5 max-w-2xl text-2xl font-semibold sm:text-3xl">
-          De dónde sale cada dato
+          Respaldo de la información publicada
         </h2>
         <p className="mt-4 max-w-2xl leading-relaxed opacity-80">
-          Publicamos las fuentes para que cualquiera pueda verificarlas. Si una
-          afirmación no tiene con qué respaldarse, no la ponemos.
+          Se publican las fuentes de cada dato para permitir su verificación. Las
+          afirmaciones que no cuentan con respaldo documental no se incluyen.
         </p>
 
         <ol className="mt-12 space-y-px">

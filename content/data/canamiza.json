@@ -3,7 +3,7 @@
   "nombreComercial": "Aserrín de Oro",
   "nombreComercialProvisional": false,
   "subtitulo": "Cama natural para animales, de cáñamo industrial costarricense",
-  "descripcion": "La cañamiza —o hurd— es el núcleo leñoso del tallo del cáñamo industrial. La cultivamos y procesamos en San Isidro de San Ramón, sin químicos ni aditivos, y cada lote se puede rastrear hasta la parcela donde creció.",
+  "descripcion": "La cañamiza, o hurd, es el núcleo leñoso del tallo del cáñamo industrial. Se cultiva y procesa en San Isidro de San Ramón, sin químicos ni aditivos, y cada lote cuenta con trazabilidad documentada hasta la parcela de origen.",
   "beneficios": [
     {
       "id": "absorcion",
@@ -65,13 +65,13 @@
         "Poco polvo, lo que importa en caballos con problemas respiratorios o propensos a ellos",
         "Cama mullida que amortigua el descanso sobre piso duro",
         "Se composta rápido y vuelve como abono a la misma finca",
-        "Lote trazable: usted sabe de dónde salió lo que pisa su caballo"
+        "Trazabilidad por lote: es posible acreditar el origen del material"
       ],
       "desventajas": [
-        "El saco cuesta más que la viruta o la paja. El ahorro aparece con el uso: se consume menos y se recambia con menos frecuencia",
-        "Hay que guardarla en seco. Si se moja durante el almacenamiento, enmohece",
-        "Algunos caballos comen la cama. El cáñamo es poco digerible, así que conviene vigilarlo los primeros días",
-        "La cama profunda inicial pide más volumen que un recambio normal"
+        "El precio por saco es superior al de la viruta o la paja. El ahorro se produce en el uso: menor consumo y menor frecuencia de recambio",
+        "Requiere almacenamiento en seco. La humedad durante el acopio favorece la aparición de moho",
+        "Algunos ejemplares ingieren el material. El cáñamo es poco digerible, por lo que se recomienda supervisión durante los primeros días",
+        "El establecimiento de cama profunda requiere mayor volumen inicial que un recambio ordinario"
       ],
       "foto": null
     },
@@ -90,7 +90,7 @@
         "El consumo por área es alto; para hatos grandes hay que planificar volumen y bodega seca",
         "Requiere espacio de almacenamiento protegido de la lluvia",
         "El transporte a zonas lejanas de San Ramón encarece el saco",
-        "No sustituye la ventilación ni la limpieza: si el piso drena mal, ninguna cama lo arregla"
+        "No sustituye la ventilación ni la limpieza: un piso con drenaje deficiente no se corrige con el material de cama"
       ],
       "foto": null
     },
@@ -108,7 +108,7 @@
       "desventajas": [
         "La partícula puede ser grande para pollitos de primera semana; conviene tamizar o mezclar al inicio",
         "No neutraliza amoníaco sin límite: si la densidad de aves es muy alta, hay que recambiar igual",
-        "Nunca poner cama nueva encima de una húmeda o apelmazada: hay que retirar primero",
+        "No debe colocarse material nuevo sobre cama húmeda o apelmazada: es necesario retirarla previamente",
         "Necesita bodega seca"
       ],
       "foto": null
@@ -125,13 +125,13 @@
         "Material vegetal simple, sin aditivos ni perfumes"
       ],
       "desventajas": [
-        "Algunos animales roen la cama; el cáñamo es poco digerible, así que hay que vigilar el consumo",
+        "Algunos animales roen el material; al ser poco digerible, conviene supervisar su consumo",
         "En cantidades pequeñas el costo por unidad sube",
-        "Se apelmaza si la jaula no drena o no se limpia con regularidad"
+        "Tiende a apelmazarse si la jaula carece de drenaje o no se limpia con regularidad"
       ],
       "foto": null
     }
   ],
   "canales": ["Agroveterinarias", "Distribuidores agropecuarios"],
-  "notaHonestidad": "Ninguna cama sustituye la ventilación, el drenaje y la limpieza. La cañamiza ayuda; el manejo sigue siendo suyo."
+  "notaHonestidad": "Ningún material de cama sustituye la ventilación, el drenaje ni la limpieza de las instalaciones. La cañamiza contribuye al manejo; no lo reemplaza."
 }

@@ -16,7 +16,7 @@ export default function PaginaPrivacidad() {
 
       <h2 className="mt-12 text-xl font-semibold">Qué datos recogemos</h2>
       <p className="mt-3 leading-relaxed">
-        Solo lo que usted escribe en nuestros formularios: su nombre, un correo o
+        Únicamente la información que usted consigna en nuestros formularios: su nombre, un correo o
         teléfono de contacto, y los datos de su consulta —la cantidad que
         necesita, la ubicación de su terreno o su mensaje. Nada más.
       </p>
@@ -48,8 +48,8 @@ export default function PaginaPrivacidad() {
 
       <h2 className="mt-10 text-xl font-semibold">Sus derechos</h2>
       <p className="mt-3 leading-relaxed">
-        Puede pedirnos en cualquier momento que borremos sus datos de contacto.
-        Escríbanos desde la página de contacto y lo hacemos.
+        Puede solicitar en cualquier momento la eliminación de sus datos de
+        contacto. La solicitud puede dirigirse a través de la página de contacto.
       </p>
     </div>
   )

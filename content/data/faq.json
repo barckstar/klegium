@@ -16,7 +16,7 @@
       },
       {
         "p": "¿Dónde está el cultivo?",
-        "r": "En San Isidro de San Ramón, Alajuela."
+        "r": "En San Isidro de San Ramón, provincia de Alajuela."
       }
     ]
   },
@@ -25,19 +25,19 @@
     "preguntas": [
       {
         "p": "¿Cómo puedo informarme sobre participar?",
-        "r": "Estamos trabajando con la Municipalidad de San Ramón para abrir un espacio de consulta en el cantón. Mientras tanto, puede escribirnos directamente desde este sitio."
+        "r": "En coordinación con la Municipalidad de San Ramón, trabajamos en habilitar un espacio de consulta en el cantón. Mientras tanto, puede dirigir su consulta a través de este sitio."
       },
       {
         "p": "¿Me convierto en productor autorizado si participo?",
-        "r": "No. La titularidad de la producción y la responsabilidad ante las autoridades quedan siempre en Klegium. La autorización no se comparte ni se traspasa."
+        "r": "No. La titularidad de la producción y la responsabilidad ante las autoridades competentes corresponden en todo momento a Klegium. La autorización no se comparte, no se traspasa y no se extiende a terceros."
       },
       {
         "p": "¿Qué necesita mi terreno?",
-        "r": "Hay condiciones mínimas de agua, servicios y situación legal del inmueble. Se revisan caso por caso, con el terreno a la vista, antes de cualquier acuerdo."
+        "r": "Existen condiciones mínimas relativas a disponibilidad de agua, servicios básicos y situación registral del inmueble. Se evalúan caso por caso, mediante visita al sitio, antes de formalizar cualquier acuerdo."
       },
       {
         "p": "¿Qué pasa si no se cumplen las reglas del cultivo?",
-        "r": "Es lo más serio del modelo. Todas las parcelas operan bajo una sola autorización, así que un incumplimiento en una pone en riesgo el trabajo de todas las demás. Por eso las reglas se explican en detalle antes de empezar, no después."
+        "r": "Es el aspecto más sensible de la iniciativa. Todas las parcelas operan bajo una misma autorización, de modo que un incumplimiento en cualquiera de ellas compromete la actividad del conjunto. Por esa razón las obligaciones se exponen en detalle con anterioridad a la incorporación de un inmueble."
       }
     ]
   },
@@ -46,19 +46,19 @@
     "preguntas": [
       {
         "p": "¿Cuánto cuesta la cañamiza?",
-        "r": "El precio depende de la cantidad y la presentación. Solicite una cotización y le respondemos con el precio para su caso."
+        "r": "El precio depende del volumen y de la presentación requerida. Solicite una cotización y le remitiremos la propuesta correspondiente."
       },
       {
         "p": "¿Es más cara que la viruta de madera?",
-        "r": "El saco sí. Pero absorbe más y se recambia con menos frecuencia, así que el costo mensual suele salir parejo o menor. Lo honesto es decirlo así: cuesta más el saco, sale más barato el mes."
+        "r": "El precio por saco es mayor. Sin embargo, su capacidad de absorción es superior y la frecuencia de recambio es menor, por lo que el costo mensual tiende a igualarse o reducirse. La comparación pertinente es el costo por período de uso, no el precio unitario."
       },
       {
         "p": "¿Cómo la guardo?",
-        "r": "En seco y bajo techo. Si se moja durante el almacenamiento, enmohece. Es la precaución más importante con este material."
+        "r": "En seco y bajo techo. La humedad durante el almacenamiento favorece la aparición de moho, por lo que este es el cuidado más relevante del material."
       },
       {
         "p": "¿Sirve para cualquier animal?",
-        "r": "Funciona bien en caballos, ganado, aves, conejos y pequeños animales, con matices en cada caso. En la página de cañamiza explicamos las ventajas y las desventajas para cada uno."
+        "r": "Es apto para equinos, ganado, aves, conejos y pequeños animales, con consideraciones particulares en cada caso. En la sección de cañamiza se detallan las ventajas y las limitaciones por especie."
       }
     ]
   }

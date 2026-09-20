@@ -75,7 +75,7 @@ export default function PaginaCanamiza() {
       <section className="mx-auto max-w-6xl px-4 py-24">
         <Revelar>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
-            Por qué esta cañamiza
+            Características del material
           </p>
         </Revelar>
 
@@ -104,11 +104,11 @@ export default function PaginaCanamiza() {
               Para cada animal
             </p>
             <h2 className="mt-5 max-w-2xl text-3xl font-semibold sm:text-4xl">
-              Qué gana y qué tiene que considerar
+              Ventajas y consideraciones por especie
             </h2>
             <p className="mt-5 max-w-2xl leading-relaxed">
-              Decimos las dos cosas. Una cama no le sirve igual a un caballo que
-              a un galpón de pollitos, y preferimos que lo sepa antes de comprar.
+              El desempeño del material varía según la especie y el sistema de manejo.
+              Se exponen tanto las ventajas como las limitaciones de cada caso.
             </p>
           </Revelar>
 
@@ -191,7 +191,7 @@ export default function PaginaCanamiza() {
               <p className="leading-relaxed">{datos.notaHonestidad}</p>
             </div>
             <p className="mt-8 text-sm leading-relaxed opacity-70">
-              También distribuimos a través de{' '}
+              Distribución a través de{' '}
               {datos.canales.join(' y ').toLowerCase()}.
             </p>
           </Revelar>
@@ -215,11 +215,11 @@ export default function PaginaCanamiza() {
           <Revelar>
             <Eyebrow>Cotización</Eyebrow>
             <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">
-              Cuéntenos qué necesita
+              Solicitud de cotización
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--color-salvia)]">
-              El precio depende de la cantidad y de la presentación. Déjenos los
-              datos y le respondemos con una cotización.
+              El precio depende del volumen y de la presentación requerida. Indíquenos
+              sus datos y le remitiremos la propuesta correspondiente.
             </p>
           </Revelar>
 
@@ -229,10 +229,10 @@ export default function PaginaCanamiza() {
                 fondo="oscuro"
                 asunto="Cotización de cañamiza"
                 textoBoton="Solicitar cotización"
-                mensajeExito="Recibimos su solicitud. Le respondemos con la cotización lo antes posible."
+                mensajeExito="Hemos recibido su solicitud. Le remitiremos la cotización a la brevedad."
                 campos={[
-                  { nombre: 'nombre', etiqueta: 'Nombre', requerido: true },
-                  { nombre: 'contacto', etiqueta: 'Correo o teléfono', requerido: true },
+                  { nombre: 'nombre', etiqueta: 'Nombre completo', requerido: true },
+                  { nombre: 'contacto', etiqueta: 'Correo electrónico o teléfono', requerido: true },
                   {
                     nombre: 'establecimiento',
                     etiqueta: 'Tipo de establecimiento',
@@ -250,9 +250,9 @@ export default function PaginaCanamiza() {
                     nombre: 'cantidad',
                     etiqueta: 'Cantidad estimada',
                     requerido: true,
-                    ayuda: 'Por ejemplo: 20 sacos al mes',
+                    ayuda: 'Por ejemplo: 20 sacos mensuales',
                   },
-                  { nombre: 'mensaje', etiqueta: 'Mensaje', tipo: 'area' },
+                  { nombre: 'mensaje', etiqueta: 'Detalle de la consulta', tipo: 'area' },
                 ]}
               />
             </div>

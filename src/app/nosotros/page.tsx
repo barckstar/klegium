@@ -3,7 +3,7 @@ import { metadatosDe } from '@/lib/sitio'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { Instituciones } from '@/components/Instituciones'
-import { getPermisos } from '@/lib/datos'
+import { getPermisos, getEquipo } from '@/lib/datos'
 
 export const metadata = metadatosDe({
   titulo: 'Nosotros',
@@ -11,16 +11,6 @@ export const metadata = metadatosDe({
     'Klegium cultiva cáñamo industrial en San Isidro de San Ramón, Costa Rica, con autorización del Ministerio de Agricultura y Ganadería.',
   ruta: '/nosotros',
 })
-
-const EQUIPO = [
-  { nombre: 'Kevin Rodríguez', rol: 'Fundador', oficios: ['Empresario'] },
-  { nombre: 'Emanuel', rol: 'Cofundador', oficios: ['Empresario'] },
-  {
-    nombre: 'Leonel Castro',
-    rol: 'Cofundador',
-    oficios: ['Empresario', 'Ingeniero en sistemas'],
-  },
-]
 
 /** Solo plantas sanas: una planta enferma en la web propia es un argumento
  *  en contra que nadie pidió. */
@@ -35,6 +25,7 @@ const GALERIA = [
 
 export default function PaginaNosotros() {
   const permisos = getPermisos()
+  const { fundadores, expertos } = getEquipo()
 
   return (
     <>
@@ -165,11 +156,11 @@ export default function PaginaNosotros() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
               El equipo
             </p>
-            <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">Somos tres</h2>
+            <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">Quiénes lo dirigen</h2>
           </Revelar>
 
           <ul className="mt-12 grid gap-8 sm:grid-cols-3">
-            {EQUIPO.map((persona, i) => (
+            {fundadores.map((persona, i) => (
               <Revelar key={persona.nombre} retraso={i * 120} className="h-full">
                 <li className="h-full rounded-sm bg-[var(--color-beige)] p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
                   <p className="text-2xl font-semibold">{persona.nombre}</p>
@@ -190,8 +181,47 @@ export default function PaginaNosotros() {
               </Revelar>
             ))}
           </ul>
+
+          {expertos.length > 0 && (
+            <>
+              <Revelar>
+                <h3 className="mt-20 text-2xl font-semibold sm:text-3xl">
+                  Asesoría especializada en cáñamo
+                </h3>
+                <p className="mt-4 max-w-2xl leading-relaxed">
+                  El cultivo de cáñamo industrial en clima tropical exige
+                  criterio técnico. Contamos con el acompañamiento de personas
+                  con experiencia comprobada en la materia.
+                </p>
+              </Revelar>
+
+              <ul className="mt-10 grid gap-8 sm:grid-cols-3">
+                {expertos.map((persona, i) => (
+                  <Revelar key={persona.nombre} retraso={i * 120} className="h-full">
+                    <li className="h-full rounded-sm border border-[var(--color-verde-bosque)]/30 bg-[var(--color-beige)]/60 p-8">
+                      <p className="text-xl font-semibold">{persona.nombre}</p>
+                      <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
+                        {persona.rol}
+                      </p>
+                      <ul className="mt-5 flex flex-wrap gap-2">
+                        {persona.oficios.map((o) => (
+                          <li
+                            key={o}
+                            className="rounded-full border border-[var(--color-verde-bosque)]/30 px-3 py-1 text-xs"
+                          >
+                            {o}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </Revelar>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </section>
+
     </>
   )
 }

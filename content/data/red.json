@@ -1,37 +1,75 @@
 {
-  "beneficios": [
-    {
-      "id": "ambiental",
-      "titulo": "Ambiental",
-      "detalle": "Un cultivo de ciclo corto que captura carbono mientras crece y deja materia orgánica en el suelo. Sin agroquímicos de alta toxicidad, con manejo a base de extractos naturales.",
-      "dato": "8 a 15 t",
-      "datoPie": "de CO₂ capturadas por hectárea. Un bosque captura entre 2 y 6 al año."
-    },
+  "propuesta": {
+    "eyebrow": "Propuesta de impacto local",
+    "titulo": "Un proyecto de reactivación económica regional",
+    "entrada": "La iniciativa que presentamos a la Municipalidad de San Ramón no se limita a establecer un cultivo. Su objetivo es que una actividad agrícola nueva se convierta en una actividad económica para el cantón, con participación de propietarios de terrenos, trabajadores, proveedores y empresas de la zona.",
+    "cadena": [
+      "Cultivo",
+      "Cosecha",
+      "Procesamiento",
+      "Transformación",
+      "Productos",
+      "Comercialización"
+    ],
+    "cierre": "Cada eslabón de esa cadena representa actividad económica que puede permanecer en la región."
+  },
+  "impactos": [
     {
       "id": "economico",
-      "titulo": "Económico para la región",
-      "detalle": "Una actividad nueva mueve más que la finca: preparación de terreno, transporte, maquinaria, empaque, procesamiento y comercialización. Cada eslabón es trabajo que se queda en el cantón.",
-      "dato": "Cadena",
-      "datoPie": "completa, de la siembra al producto terminado"
+      "titulo": "Impacto económico",
+      "resumen": "Un encadenamiento productivo alrededor de una actividad agrícola regulada.",
+      "puntos": [
+        "Mano de obra y servicios asociados a la producción",
+        "Transporte y logística",
+        "Maquinaria y mantenimiento",
+        "Empaque y comercialización",
+        "Nuevos emprendimientos y proveedores locales"
+      ]
     },
     {
       "id": "social",
-      "titulo": "Social",
-      "detalle": "Terrenos que hoy no producen vuelven a dar. Personas de la zona se capacitan en un cultivo que casi nadie maneja todavía en el país, y esa experiencia queda acá.",
-      "dato": "Capacitación",
-      "datoPie": "y acompañamiento técnico en campo"
+      "titulo": "Impacto social",
+      "resumen": "Oportunidades para las personas de las zonas rurales del cantón.",
+      "puntos": [
+        "Generación de empleo alrededor de la actividad",
+        "Capacitación y acompañamiento técnico a quienes deseen participar",
+        "Incorporación de terrenos con poco o ningún uso productivo actual",
+        "Un crecimiento que beneficie a más personas y no se concentre en una sola finca"
+      ]
+    },
+    {
+      "id": "ambiental",
+      "titulo": "Impacto ambiental",
+      "resumen": "Aprovechamiento integral de la planta y desarrollo de materiales alternativos.",
+      "puntos": [
+        "Aprovechamiento de las distintas partes de la planta",
+        "Desarrollo de materiales alternativos de menor huella",
+        "Uso eficiente del agua y manejo responsable del suelo",
+        "Puesta en producción de áreas subutilizadas, sin requerir grandes extensiones"
+      ]
+    },
+    {
+      "id": "agropecuario",
+      "titulo": "Impacto en el sector agropecuario",
+      "resumen": "Una alternativa nacional de cama animal, producida en el cantón.",
+      "puntos": [
+        "Caballerizas y centros ecuestres",
+        "Fincas y establecimientos agropecuarios",
+        "Criaderos de pequeños animales",
+        "Agroveterinarias y comercios especializados"
+      ]
     }
   ],
   "consulta": {
     "titulo": "Consulte en la Municipalidad de San Ramón",
-    "entrada": "Estamos trabajando con la Municipalidad de San Ramón para abrir un espacio de consulta en el cantón, donde cualquier persona interesada pueda informarse sobre el cultivo de cáñamo industrial y qué hace falta para participar.",
+    "entrada": "En coordinación con la Municipalidad de San Ramón, trabajamos en habilitar un espacio de consulta en el cantón, dirigido a propietarios de terrenos y personas interesadas en conocer la actividad.",
     "puntos": [
-      "Qué es el cáñamo industrial y qué se puede hacer con él",
-      "Qué condiciones necesita un terreno para entrar",
-      "Cómo funciona el acompañamiento técnico",
-      "Qué responsabilidades asume cada parte"
+      "En qué consiste el cultivo de cáñamo industrial y cuáles son sus aplicaciones",
+      "Qué condiciones debe reunir un inmueble para ser considerado",
+      "En qué consiste el acompañamiento técnico",
+      "Qué obligaciones y responsabilidades asume cada parte"
     ],
-    "cierre": "Mientras ese espacio se termina de montar, puede escribirnos directamente."
+    "cierre": "Mientras ese espacio se habilita, puede dirigir su consulta directamente a través de este sitio."
   },
-  "advertencia": "El cáñamo industrial es una actividad regulada y fiscalizada por el Estado. Participar implica cumplir reglas de manejo, registro y trazabilidad, y esas reglas se conversan en detalle antes de cualquier acuerdo."
+  "advertencia": "El cáñamo industrial es una actividad regulada y fiscalizada por el Estado costarricense. La participación conlleva obligaciones de manejo, registro y trazabilidad, que se exponen en detalle antes de formalizar cualquier acuerdo."
 }
