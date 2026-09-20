@@ -3,12 +3,16 @@
     "id": "mag",
     "nombre": "Ministerio de Agricultura y Ganadería",
     "relacion": "Autorización de cultivo, producción y actividades conexas",
-    "logo": null
+    "logo": "/marca/instituciones/ministerio-agricultura-ganaderia.png",
+    "logoAncho": 900,
+    "logoAlto": 267
   },
   {
     "id": "municipalidad-san-ramon",
     "nombre": "Municipalidad de San Ramón",
     "relacion": "Acompañamiento al proyecto en el cantón",
-    "logo": null
+    "logo": "/marca/instituciones/municipalidad-san-ramon.png",
+    "logoAncho": 261,
+    "logoAlto": 94
   }
 ]

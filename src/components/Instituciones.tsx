@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { getInstituciones } from '@/lib/datos'
+import { getInstituciones, getPermisos } from '@/lib/datos'
+import { Revelar } from '@/components/Revelar'
 
 /**
  * Muro institucional.
@@ -7,13 +8,15 @@ import { getInstituciones } from '@/lib/datos'
  * Cuidado con el texto: estas instituciones **regulan y acompañan**, no
  * patrocinan ni avalan comercialmente a Klegium. El Ministerio emitió una
  * autorización, que no es lo mismo que un respaldo. Por eso cada institución va
- * con la relación real escrita al lado, en vez de un genérico "nos apoyan".
+ * con la relación real escrita al lado, en vez de un genérico "nos apoyan", y
+ * la aclaración queda impresa al pie de la sección.
  *
- * Mientras no haya archivos de logo —ni permiso de uso— se muestra el nombre
- * completo. Nunca la sigla: el nombre entero es más claro y más respetuoso.
+ * La cifra de permisos vive aquí y no en una sección aparte: es el dato que le
+ * da peso al bloque. Sin ella, dos logos sueltos se leen como un espacio vacío.
  */
 export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' }) {
   const instituciones = getInstituciones()
+  const permisos = getPermisos()
   const oscuro = fondo === 'oscuro'
 
   return (
@@ -24,56 +27,103 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
           : 'bg-[var(--color-beige)]'
       }
     >
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <p
-          className={`text-xs font-semibold uppercase tracking-[0.35em] ${
-            oscuro ? 'text-[var(--color-verde-hoja)]' : 'text-[var(--color-verde-bosque)]'
-          }`}
-        >
-          Marco institucional
-        </p>
-        <h2 className="mt-4 max-w-2xl text-2xl font-semibold sm:text-3xl">
-          Operamos bajo autorización y acompañamiento de instituciones públicas
-        </h2>
-
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-sm bg-current/15 sm:grid-cols-2">
-          {instituciones.map((i) => (
-            <li
-              key={i.id}
-              className={`flex flex-col items-center gap-4 p-8 text-center ${
-                oscuro ? 'bg-[var(--color-verde-profundo)]' : 'bg-[var(--color-beige)]'
+      <div className="mx-auto max-w-6xl px-4 py-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-20">
+          {/* ------------------------------------------------- lado izquierdo */}
+          <Revelar desde="izquierda">
+            <p
+              className={`text-xs font-semibold uppercase tracking-[0.35em] ${
+                oscuro
+                  ? 'text-[var(--color-verde-hoja)]'
+                  : 'text-[var(--color-verde-bosque)]'
               }`}
             >
-              <div className="flex min-h-16 items-center justify-center">
-                {i.logo ? (
-                  <Image
-                    src={i.logo}
-                    alt={i.nombre}
-                    width={140}
-                    height={64}
-                    className="h-16 w-auto object-contain"
-                  />
-                ) : (
-                  <Image
-                    src="/marca/isotipo-claro.png"
-                    alt=""
-                    aria-hidden="true"
-                    width={384}
-                    height={457}
-                    className={`h-10 w-auto ${oscuro ? 'opacity-40' : 'opacity-0'}`}
-                  />
-                )}
-              </div>
+              Marco institucional
+            </p>
+            <h2 className="mt-5 text-balance text-3xl font-semibold leading-tight sm:text-4xl">
+              Operamos bajo autorización y acompañamiento de instituciones
+              públicas
+            </h2>
 
-              <div>
-                <p className="text-lg font-semibold leading-snug text-[var(--color-verde-bosque)]">{i.nombre}</p>
-                <p className="mt-2 text-xs leading-relaxed opacity-70">
-                  {i.relacion}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+            <div
+              className={`mt-10 flex items-baseline gap-5 border-t pt-8 ${
+                oscuro
+                  ? 'border-[var(--color-salvia)]/25'
+                  : 'border-[var(--color-verde-bosque)]/25'
+              }`}
+            >
+              <p
+                className={`text-[clamp(3.5rem,11vw,6rem)] font-semibold leading-[0.8] tabular-nums tracking-tight ${
+                  oscuro
+                    ? 'text-[var(--color-verde-hoja)]'
+                    : 'text-[var(--color-verde-bosque)]'
+                }`}
+              >
+                {permisos.otorgados}
+              </p>
+              <p className="text-lg leading-snug opacity-70">
+                de {permisos.total} permisos
+                <br />
+                posibles en el país
+              </p>
+            </div>
+            <p className="mt-6 max-w-md leading-relaxed opacity-80">
+              {permisos.resumen}
+            </p>
+          </Revelar>
+
+          {/* -------------------------------------------------- lado derecho */}
+          <ul className="grid gap-5 sm:grid-cols-2">
+            {instituciones.map((i, n) => (
+              <Revelar key={i.id} desde="derecha" retraso={n * 140} className="h-full">
+                <li
+                  className={`flex h-full flex-col rounded-sm ${
+                    oscuro ? 'bg-white/95 text-[var(--color-negro)]' : 'bg-white'
+                  }`}
+                >
+                  {/* Caja de alto fijo: los dos logos tienen proporciones muy
+                      distintas y sin ella uno queda al doble que el otro. */}
+                  <div className="flex h-28 items-center justify-center px-8">
+                    {i.logo ? (
+                      <Image
+                        src={i.logo}
+                        alt={i.nombre}
+                        width={i.logoAncho ?? 200}
+                        height={i.logoAlto ?? 64}
+                        className="max-h-12 w-auto max-w-[200px] object-contain"
+                      />
+                    ) : (
+                      <span className="text-center text-lg font-semibold leading-snug text-[var(--color-verde-bosque)]">
+                        {i.nombre}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="border-t border-[var(--color-verde-bosque)]/15 px-8 py-7">
+                    <p className="font-semibold leading-snug text-[var(--color-verde-bosque)]">
+                      {i.nombre}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--color-negro)]/70">
+                      {i.relacion}
+                    </p>
+                  </div>
+                </li>
+              </Revelar>
+            ))}
+          </ul>
+        </div>
+
+        <p
+          className={`mt-14 border-t pt-6 text-xs leading-relaxed opacity-60 ${
+            oscuro
+              ? 'border-[var(--color-salvia)]/25'
+              : 'border-[var(--color-verde-bosque)]/25'
+          }`}
+        >
+          Los emblemas identifican a las instituciones que regulan y acompañan la
+          actividad. Su presencia refleja la relación descrita en cada caso y no
+          constituye patrocinio, aval comercial ni recomendación de Klegium.
+        </p>
       </div>
     </section>
   )

@@ -24,7 +24,7 @@ export default function PaginaCanamiza() {
       <FaqJsonLd grupos={['Cañamiza']} />
 
       <Hero
-        imagen="/fotos/canamiza-material.jpg"
+        imagen="/fotos/canamiza-textura.jpg"
         alt="Cañamiza de cáñamo industrial triturada, lista para usarse como cama animal"
         prioridad
         deriva
@@ -60,7 +60,7 @@ export default function PaginaCanamiza() {
           <Revelar desde="derecha" retraso={150}>
             <div className="relative aspect-square overflow-hidden rounded-sm">
               <Image
-                src="/fotos/canamiza-material.jpg"
+                src="/fotos/canamiza-textura.jpg"
                 alt="Detalle de la cañamiza triturada: el núcleo leñoso del tallo del cáñamo"
                 fill
                 sizes="(max-width: 768px) 100vw, 560px"

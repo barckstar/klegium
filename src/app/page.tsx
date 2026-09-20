@@ -65,36 +65,26 @@ export default function PaginaInicio() {
       </section>
 
       {/* --------------------------------------------------------- producto
-          Va inmediatamente después del hero: es lo único que hoy se vende. */}
-      <section className="relative isolate flex min-h-[78svh] items-end overflow-hidden bg-[var(--color-negro)]">
-        <Image
-          src={destacado.foto}
-          alt={destacado.fotoAlt}
-          fill
-          sizes="100vw"
-          className="-z-10 object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-[var(--color-negro)]/45" />
-        {/* Degradados arriba y abajo: la sección entra desde el verde del hero y
-            sale hacia el de la siguiente, sin cortes duros en ningún borde. */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-[var(--color-verde-profundo)] to-transparent"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/60 to-transparent" />
+          Va inmediatamente después del hero: es lo único que hoy se vende.
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-40 text-[var(--color-beige)]">
-          <Revelar>
+          La foto NO va de fondo a pantalla completa. Encadenar el video del
+          hero con otra imagen a sangre se lee como un segundo hero y el pase
+          resulta abrupto. Aquí la foto es un objeto dentro de la sección: el
+          fondo sólido continúa el degradado del hero —así el corte desaparece—
+          y el cambio de composición es lo que marca que empezó otra cosa. */}
+      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
+        <div className="mx-auto grid max-w-6xl gap-16 px-4 py-24 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-20">
+          <Revelar desde="izquierda">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">
               {destacado.eyebrow}
             </p>
-            <h2 className="mt-6 text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.98]">
+            <h2 className="mt-6 text-[clamp(2.75rem,7vw,4.5rem)] font-semibold leading-[0.98]">
               {destacado.titulo}
             </h2>
             <p className="mt-4 text-xl text-[var(--color-salvia)] sm:text-2xl">
               {destacado.subtitulo}
             </p>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed">{destacado.texto}</p>
+            <p className="mt-8 max-w-md text-lg leading-relaxed">{destacado.texto}</p>
             <Link
               href="/canamiza"
               className="mt-10 inline-block rounded-sm bg-[var(--color-verde-hoja)] px-8 py-4 font-semibold text-[var(--color-verde-profundo)] transition-transform duration-300 hover:-translate-y-1"
@@ -102,11 +92,36 @@ export default function PaginaInicio() {
               Ver el producto
             </Link>
           </Revelar>
+
+          {/* Dos planos: el contexto de uso y el material en sí. La foto del
+              establo sola no enseña qué se vende. */}
+          <Revelar desde="derecha" retraso={150}>
+            <div className="relative">
+              <div className="recorte-limpio relative aspect-[4/5] overflow-hidden rounded-sm sm:aspect-[5/4] lg:aspect-[4/5]">
+                <Image
+                  src={destacado.foto}
+                  alt={destacado.fotoAlt}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="scale-[1.01] object-cover"
+                />
+              </div>
+              <div className="recorte-limpio absolute -bottom-6 -left-2 aspect-square w-32 overflow-hidden rounded-sm ring-8 ring-[var(--color-verde-profundo)] sm:-bottom-10 sm:-left-10 sm:w-48 lg:w-56">
+                <Image
+                  src={destacado.fotoDetalle}
+                  alt={destacado.fotoDetalleAlt}
+                  fill
+                  sizes="224px"
+                  className="scale-[1.01] object-cover"
+                />
+              </div>
+            </div>
+          </Revelar>
         </div>
       </section>
 
       {/* ----------------------------------------------------------- origen */}
-      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
+      <section className="border-t border-[var(--color-salvia)]/15 bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
         <div className="mx-auto max-w-4xl px-4 py-24 sm:py-32">
           <Revelar>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">

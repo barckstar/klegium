@@ -15,4 +15,18 @@ que permite uso comercial sin atribución obligatoria. Se registran igual, por t
 
 ⚠️ **Estas imágenes ilustran la especie o el contexto de uso. No representan instalaciones
 de clientes de Klegium ni el producto propio.** La cañamiza en sí se muestra siempre con
-fotografía propia (`canamiza-material.jpg`).
+fotografía propia (`canamiza-textura.jpg`).
+
+## Emblemas institucionales
+
+`/marca/instituciones/` — no son material propio ni de licencia libre.
+
+| Archivo | Titular | Origen |
+| --- | --- | --- |
+| `ministerio-agricultura-ganaderia.png` | Ministerio de Agricultura y Ganadería | mag.go.cr |
+| `municipalidad-san-ramon.png` | Municipalidad de San Ramón | sitio oficial del cantón |
+
+⚠️ **Pendiente antes de publicar: solicitar autorización de uso a cada institución.**
+El Ministerio emitió una autorización de actividad, que no es un aval comercial, y el
+acompañamiento de la Municipalidad es verbal y no consta por escrito. El pie de la sección
+lo aclara, pero la aclaración no sustituye el permiso de uso del emblema.

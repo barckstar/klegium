@@ -144,6 +144,8 @@
   "destacado": {
     "foto": "/fotos/establo-caballos.jpg",
     "fotoAlt": "Caballos en una caballeriza con cama de material vegetal",
+    "fotoDetalle": "/fotos/canamiza-textura.jpg",
+    "fotoDetalleAlt": "Primer plano de cañamiza triturada: fibras leñosas claras del tallo de cáñamo",
     "eyebrow": "Línea comercial en operación",
     "titulo": "Aserrín de Oro",
     "subtitulo": "Cañamiza triturada para cama animal",

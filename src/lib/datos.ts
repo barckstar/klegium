@@ -58,6 +58,9 @@ const canamizaSchema = z.object({
   destacado: z.object({
     foto: z.string(),
     fotoAlt: z.string(),
+    /** Primer plano del material: la foto de contexto sola no enseña el producto. */
+    fotoDetalle: z.string(),
+    fotoDetalleAlt: z.string(),
     eyebrow: z.string(),
     titulo: z.string(),
     subtitulo: z.string(),
@@ -139,6 +142,9 @@ const institucionSchema = z.object({
   /** La relación real, no un genérico "nos apoyan". */
   relacion: z.string(),
   logo: z.string().nullable(),
+  /** Medidas reales del archivo: sin ellas next/image no reserva el espacio. */
+  logoAncho: z.number().int().positive().nullable().default(null),
+  logoAlto: z.number().int().positive().nullable().default(null),
 })
 
 export type Institucion = z.infer<typeof institucionSchema>
