@@ -87,3 +87,105 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+
+/* ------------------------------------------------- entrada cinematográfica
+   El título se abre: arranca con el tracking comprimido y desenfocado, y se
+   despliega hasta su espaciado final. Es el recurso clásico de los títulos de
+   apertura de cine, y funciona porque el ojo sigue el movimiento antes de leer.
+   Todo va en `transform`, `opacity` y `filter`, que el compositor resuelve sin
+   recalcular el diseño. */
+
+@keyframes abrir-titulo {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.02em;
+    transform: scale(1.06);
+    filter: blur(14px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.18em;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes subir-suave {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer-marca {
+  from {
+    opacity: 0;
+    transform: scale(0.82) translateY(14px);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Barras que se retiran hacia afuera, como un telón. */
+@keyframes telon-arriba {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+@keyframes telon-abajo {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+.cine-titulo {
+  animation: abrir-titulo 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+.cine-marca {
+  animation: aparecer-marca 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+.cine-lema {
+  animation: subir-suave 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
+}
+.cine-telon-arriba {
+  animation: telon-arriba 1.5s cubic-bezier(0.83, 0, 0.17, 1) 0.15s both;
+}
+.cine-telon-abajo {
+  animation: telon-abajo 1.5s cubic-bezier(0.83, 0, 0.17, 1) 0.15s both;
+}
+
+/* Viñeta: oscurece las esquinas y empuja la vista al centro. */
+.vineta {
+  background: radial-gradient(
+    ellipse 120% 85% at 50% 45%,
+    transparent 30%,
+    color-mix(in srgb, var(--color-negro) 70%, transparent) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cine-titulo,
+  .cine-marca,
+  .cine-lema,
+  .cine-telon-arriba,
+  .cine-telon-abajo {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    letter-spacing: 0.18em;
+  }
+  .cine-telon-arriba,
+  .cine-telon-abajo {
+    display: none;
+  }
+}

@@ -2,7 +2,6 @@ import { metadatosDe } from '@/lib/sitio'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { Faq, FaqJsonLd } from '@/components/Faq'
-import { MarcoLegal } from '@/components/MarcoLegal'
 
 export const metadata = metadatosDe({
   titulo: 'Preguntas frecuentes',
@@ -35,8 +34,6 @@ export default function PaginaPreguntas() {
       <section className="mx-auto max-w-5xl px-4 py-24">
         <Faq />
       </section>
-
-      <MarcoLegal />
     </>
   )
 }

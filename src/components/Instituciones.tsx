@@ -5,12 +5,12 @@ import { getInstituciones } from '@/lib/datos'
  * Muro institucional.
  *
  * Cuidado con el texto: estas instituciones **regulan y acompañan**, no
- * patrocinan ni avalan comercialmente a Klegium. El MAG emitió una
- * autorización, que no es lo mismo que un respaldo. Por eso cada logo va con
- * la relación real escrita al lado, en vez de un genérico "nos apoyan".
+ * patrocinan ni avalan comercialmente a Klegium. El Ministerio emitió una
+ * autorización, que no es lo mismo que un respaldo. Por eso cada institución va
+ * con la relación real escrita al lado, en vez de un genérico "nos apoyan".
  *
- * Mientras no haya archivos de logo —ni permiso de uso— se muestra la sigla
- * en una placa. Se ve intencional y no compromete a nadie.
+ * Mientras no haya archivos de logo —ni permiso de uso— se muestra el nombre
+ * completo. Nunca la sigla: el nombre entero es más claro y más respetuoso.
  */
 export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' }) {
   const instituciones = getInstituciones()
@@ -36,7 +36,7 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
           Operamos bajo autorización y acompañamiento de instituciones públicas
         </h2>
 
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-sm bg-current/15 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid gap-px overflow-hidden rounded-sm bg-current/15 sm:grid-cols-2">
           {instituciones.map((i) => (
             <li
               key={i.id}
@@ -44,7 +44,7 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
                 oscuro ? 'bg-[var(--color-verde-profundo)]' : 'bg-[var(--color-beige)]'
               }`}
             >
-              <div className="flex h-16 items-center justify-center">
+              <div className="flex min-h-16 items-center justify-center">
                 {i.logo ? (
                   <Image
                     src={i.logo}
@@ -54,20 +54,19 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
                     className="h-16 w-auto object-contain"
                   />
                 ) : (
-                  <span
-                    className={`text-2xl font-semibold tracking-[0.15em] ${
-                      oscuro
-                        ? 'text-[var(--color-salvia)]'
-                        : 'text-[var(--color-verde-bosque)]'
-                    }`}
-                  >
-                    {i.sigla}
-                  </span>
+                  <Image
+                    src="/marca/isotipo-claro.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={384}
+                    height={457}
+                    className={`h-10 w-auto ${oscuro ? 'opacity-40' : 'opacity-0'}`}
+                  />
                 )}
               </div>
 
               <div>
-                <p className="text-sm font-semibold leading-snug">{i.nombre}</p>
+                <p className="text-lg font-semibold leading-snug text-[var(--color-verde-bosque)]">{i.nombre}</p>
                 <p className="mt-2 text-xs leading-relaxed opacity-70">
                   {i.relacion}
                 </p>

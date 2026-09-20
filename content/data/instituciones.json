@@ -2,29 +2,13 @@
   {
     "id": "mag",
     "nombre": "Ministerio de Agricultura y Ganadería",
-    "sigla": "MAG",
     "relacion": "Autorización de cultivo, producción y actividades conexas",
     "logo": null
   },
   {
     "id": "municipalidad-san-ramon",
     "nombre": "Municipalidad de San Ramón",
-    "sigla": "San Ramón",
     "relacion": "Acompañamiento al proyecto en el cantón",
-    "logo": null
-  },
-  {
-    "id": "sfe",
-    "nombre": "Servicio Fitosanitario del Estado",
-    "sigla": "SFE",
-    "relacion": "Registro de importador de productos de origen vegetal",
-    "logo": null
-  },
-  {
-    "id": "ons",
-    "nombre": "Oficina Nacional de Semillas",
-    "sigla": "ONS",
-    "relacion": "Registro de la semilla",
     "logo": null
   }
 ]

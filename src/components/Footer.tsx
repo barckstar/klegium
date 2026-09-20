@@ -4,7 +4,6 @@ import Link from 'next/link'
 const ENLACES = [
   { href: '/canamiza', texto: 'Cañamiza' },
   { href: '/red', texto: 'Red de agricultores' },
-  { href: '/semilla', texto: 'Semilla' },
   { href: '/nosotros', texto: 'Nosotros' },
   { href: '/preguntas', texto: 'Preguntas' },
   { href: '/contacto', texto: 'Contacto' },
@@ -36,7 +35,7 @@ export function Footer() {
             Costa Rica
           </p>
           <p className="mt-4 text-sm text-[var(--color-salvia)]">
-            Autorización MAG RA-CA-MAG-DNEA-002-2026
+            Autorizados por el Ministerio de Agricultura y Ganadería
           </p>
         </div>
 

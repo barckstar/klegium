@@ -12,7 +12,6 @@ const UMBRAL = 6
 const ENLACES = [
   { href: '/canamiza', texto: 'Cañamiza' },
   { href: '/red', texto: 'Red de agricultores' },
-  { href: '/semilla', texto: 'Semilla' },
   { href: '/nosotros', texto: 'Nosotros' },
   { href: '/preguntas', texto: 'Preguntas' },
 ]

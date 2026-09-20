@@ -79,46 +79,25 @@ export function beneficiosPublicables(datos: Canamiza): Beneficio[] {
 
 /* ----------------------------------------------------------------------- red */
 
-const modalidadSchema = z.object({
+const beneficioRedSchema = z.object({
   id: z.string(),
-  nombre: z.string(),
-  resumen: z.string(),
-  precio: z
-    .object({
-      monto: z.number().positive(),
-      moneda: z.literal('CRC'),
-      etiqueta: z.string(),
-      incluye: z.string(),
-    })
-    .nullable(),
-  aporta: z.array(z.string()).min(1),
-  recibe: z.array(z.string()).min(1),
-  aCargoDeKlegium: z.array(z.string()).min(1),
+  titulo: z.string(),
+  detalle: z.string(),
+  dato: z.string(),
+  datoPie: z.string(),
 })
 
 const redSchema = z.object({
-  modalidades: z.array(modalidadSchema).min(1),
-  /** Interruptor único: en false, ningún precio de la red se muestra. */
-  publicarPrecio: z.boolean(),
-  loQueNoEs: z.array(z.string()).min(1),
-  responsabilidad: z.object({
+  beneficios: z.array(beneficioRedSchema).min(1),
+  consulta: z.object({
     titulo: z.string(),
     entrada: z.string(),
-    puntos: z.array(z.object({ titulo: z.string(), detalle: z.string() })).min(1),
+    puntos: z.array(z.string()).min(1),
     cierre: z.string(),
   }),
+  advertencia: z.string(),
 })
 
-/** Formato de colones costarricenses, sin decimales. */
-export function colones(monto: number): string {
-  return new Intl.NumberFormat('es-CR', {
-    style: 'currency',
-    currency: 'CRC',
-    maximumFractionDigits: 0,
-  }).format(monto)
-}
-
-export type Modalidad = z.infer<typeof modalidadSchema>
 export type Red = z.infer<typeof redSchema>
 
 export function getRed(): Red {
@@ -127,17 +106,14 @@ export function getRed(): Red {
 
 /* ------------------------------------------------------------------ permisos */
 
-const permisoSchema = z.object({
-  numero: z.number().int().min(1).max(9),
-  actividad: z.string(),
-  estado: z.enum(['otorgado', 'en-tramite', 'pendiente']),
-  entidad: z.string(),
+const permisosSchema = z.object({
+  otorgados: z.number().int().positive(),
+  total: z.number().int().positive(),
+  resumen: z.string(),
 })
 
-export type Permiso = z.infer<typeof permisoSchema>
-
-export function getPermisos(): Permiso[] {
-  return cargar('permisos.json', z.array(permisoSchema).length(9))
+export function getPermisos() {
+  return cargar('permisos.json', permisosSchema)
 }
 
 /* -------------------------------------------------------------- instituciones */
@@ -145,7 +121,6 @@ export function getPermisos(): Permiso[] {
 const institucionSchema = z.object({
   id: z.string(),
   nombre: z.string(),
-  sigla: z.string(),
   /** La relación real, no un genérico "nos apoyan". */
   relacion: z.string(),
   logo: z.string().nullable(),
@@ -155,21 +130,6 @@ export type Institucion = z.infer<typeof institucionSchema>
 
 export function getInstituciones(): Institucion[] {
   return cargar('instituciones.json', z.array(institucionSchema).min(1))
-}
-
-/* ----------------------------------------------------------- certificaciones */
-
-const certificacionSchema = z.object({
-  id: z.string(),
-  nombre: z.string(),
-  estado: z.enum(['en-proceso', 'obtenida', 'por-definir']),
-  detalle: z.string(),
-})
-
-export type Certificacion = z.infer<typeof certificacionSchema>
-
-export function getCertificaciones(): Certificacion[] {
-  return cargar('certificaciones.json', z.array(certificacionSchema).min(1))
 }
 
 /* ----------------------------------------------------------------- fuentes */
@@ -208,18 +168,3 @@ export function getFaq(): GrupoFaq[] {
   return cargar('faq.json', faqSchema)
 }
 
-/* ------------------------------------------------------ requisitos terreno */
-
-const requisitoSchema = z.object({
-  numero: z.string(),
-  titulo: z.string(),
-  obligatorio: z.boolean(),
-  detalle: z.string(),
-  comoSaber: z.string(),
-})
-
-export type Requisito = z.infer<typeof requisitoSchema>
-
-export function getRequisitos(): Requisito[] {
-  return cargar('requisitos-terreno.json', z.array(requisitoSchema).min(1))
-}

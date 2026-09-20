@@ -13,7 +13,7 @@ export const SITIO = {
   url: 'https://klegium.com',
   colorTema: '#1D2A1E',
   descripcion:
-    'Cáñamo industrial cultivado en San Ramón, Costa Rica, con autorización del MAG y trazabilidad completa. Cañamiza, red de agricultores y semilla certificada.',
+    'Cáñamo industrial cultivado en San Ramón, Costa Rica, con autorización del Ministerio de Agricultura y Ganadería. Cañamiza para cama animal y red de agricultores.',
   palabrasClave: [
     'cáñamo industrial',
     'cáñamo Costa Rica',
@@ -21,11 +21,8 @@ export const SITIO = {
     'hemp hurd',
     'cama para caballos',
     'cama animal natural',
-    'semilla de cáñamo',
-    'Futura 75',
     'San Ramón',
     'hempcrete',
-    'Ley 10113',
   ],
 } as const
 
@@ -34,7 +31,6 @@ export const RUTAS = [
   { ruta: '/', prioridad: 1.0 },
   { ruta: '/canamiza', prioridad: 0.9 },
   { ruta: '/red', prioridad: 0.9 },
-  { ruta: '/semilla', prioridad: 0.8 },
   { ruta: '/nosotros', prioridad: 0.7 },
   { ruta: '/preguntas', prioridad: 0.7 },
   { ruta: '/contacto', prioridad: 0.6 },

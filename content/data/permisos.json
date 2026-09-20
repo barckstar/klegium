@@ -1,11 +1,5 @@
-[
-  { "numero": 1, "actividad": "Cultivo", "estado": "otorgado", "entidad": "MAG" },
-  { "numero": 2, "actividad": "Producción de semillas", "estado": "otorgado", "entidad": "ONS" },
-  { "numero": 3, "actividad": "Importación", "estado": "otorgado", "entidad": "MAG y SFE" },
-  { "numero": 4, "actividad": "Procesamiento", "estado": "otorgado", "entidad": "MAG" },
-  { "numero": 5, "actividad": "Comercialización", "estado": "otorgado", "entidad": "MAG" },
-  { "numero": 6, "actividad": "Transporte", "estado": "otorgado", "entidad": "MAG" },
-  { "numero": 7, "actividad": "Fitosanitarios", "estado": "otorgado", "entidad": "SFE" },
-  { "numero": 8, "actividad": "Venta de semilla", "estado": "en-tramite", "entidad": "ONS" },
-  { "numero": 9, "actividad": "Exportación", "estado": "pendiente", "entidad": "—" }
-]
+{
+  "otorgados": 7,
+  "total": 9,
+  "resumen": "Contamos con siete permisos otorgados por el Gobierno de Costa Rica para el cultivo, el procesamiento, el transporte y la comercialización de cáñamo industrial."
+}

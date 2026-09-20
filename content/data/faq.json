@@ -1,22 +1,22 @@
 [
   {
-    "grupo": "Marco legal",
+    "grupo": "Sobre el cultivo",
     "preguntas": [
       {
         "p": "¿Es legal cultivar cáñamo en Costa Rica?",
-        "r": "Sí. La Ley N.° 10113, del 2 de marzo de 2022, regula el cáñamo para uso alimentario e industrial, y su reglamento es el Decreto Ejecutivo N.° 44585-MP-MAG-MS. El cáñamo industrial no es psicoactivo y su cultivo está permitido con autorización del Ministerio de Agricultura y Ganadería."
-      },
-      {
-        "p": "¿Qué autorización tiene Klegium?",
-        "r": "La resolución RA-CA-MAG-DNEA-002-2026 del MAG, con vigencia de seis años, que cubre importación de material reproductivo, cultivo a cielo abierto, acondicionamiento post cosecha, comercialización, almacenamiento y transporte. Además, el registro de importador de productos de origen vegetal ante el Servicio Fitosanitario del Estado."
+        "r": "Sí. El cáñamo para uso alimentario e industrial está regulado por ley desde 2022, y su cultivo requiere autorización del Ministerio de Agricultura y Ganadería. Klegium opera con esa autorización."
       },
       {
         "p": "¿El cáñamo industrial es lo mismo que la marihuana?",
-        "r": "No. Son la misma especie botánica, Cannabis sativa, pero el cáñamo industrial son variedades con contenido de THC por debajo del límite legal: no es psicoactivo. Las variedades autorizadas están certificadas y su nivel de THC se controla con muestreo oficial."
+        "r": "No. Son la misma especie botánica, pero el cáñamo industrial son variedades con contenido de THC por debajo del límite legal: no es psicoactivo. El nivel se controla con muestreo oficial."
       },
       {
         "p": "¿Quién fiscaliza el cultivo?",
-        "r": "El MAG a través de la Dirección Nacional de Extensión Agropecuaria, el Ministerio de Salud, el Servicio Fitosanitario del Estado y el Instituto Costarricense sobre Drogas. Pueden hacer inspecciones programadas o sin previo aviso, y tomar muestras para medir THC."
+        "r": "El Ministerio de Agricultura y Ganadería, el Ministerio de Salud, el Servicio Fitosanitario del Estado y el Instituto Costarricense sobre Drogas. Pueden hacer inspecciones programadas o sin previo aviso."
+      },
+      {
+        "p": "¿Dónde está el cultivo?",
+        "r": "En San Isidro de San Ramón, Alajuela."
       }
     ]
   },
@@ -24,24 +24,20 @@
     "grupo": "Red de agricultores",
     "preguntas": [
       {
-        "p": "¿Me convierto en productor autorizado si entro a la red?",
-        "r": "No. La titularidad de la producción y la responsabilidad ante el MAG quedan siempre en Klegium. Usted aporta el terreno —y el trabajo, si elige esa modalidad—, pero la autorización no se comparte, no se traspasa y no se extiende. Esto está por escrito en la propuesta que presentamos al MAG."
+        "p": "¿Cómo puedo informarme sobre participar?",
+        "r": "Estamos trabajando con la Municipalidad de San Ramón para abrir un espacio de consulta en el cantón. Mientras tanto, puede escribirnos directamente desde este sitio."
+      },
+      {
+        "p": "¿Me convierto en productor autorizado si participo?",
+        "r": "No. La titularidad de la producción y la responsabilidad ante las autoridades quedan siempre en Klegium. La autorización no se comparte ni se traspasa."
       },
       {
         "p": "¿Qué necesita mi terreno?",
-        "r": "Agua disponible, situación legal limpia, electricidad y, opcionalmente, un invernadero de plástico transparente. Los cuatro requisitos están explicados en detalle en la página de la red de agricultores."
+        "r": "Hay condiciones mínimas de agua, servicios y situación legal del inmueble. Se revisan caso por caso, con el terreno a la vista, antes de cualquier acuerdo."
       },
       {
-        "p": "¿Cuánto me pagan por el terreno?",
-        "r": "Depende del área, el acceso, el agua disponible y la modalidad que elija. No publicamos una tarifa fija porque no sería honesta: lo conversamos con el terreno a la vista."
-      },
-      {
-        "p": "¿Puedo sembrar por mi cuenta con la semilla de ustedes?",
-        "r": "No. Entregar semilla para que un tercero cultive por su cuenta bajo nuestra autorización no está permitido, y no lo hacemos. Si usted quiere ser productor autorizado por su cuenta, tiene que tramitar su propia autorización ante el MAG."
-      },
-      {
-        "p": "¿Qué pasa si no cumplo las reglas del cultivo?",
-        "r": "Es lo más serio de todo el modelo. Un incumplimiento en una parcela pone en riesgo la autorización de Klegium y, con ella, la de toda la red. Si alguien incurre en mala praxis, tenemos que actuar legalmente contra esa persona para proteger al resto. Por eso insistimos en que las reglas se entiendan antes de empezar, no después."
+        "p": "¿Qué pasa si no se cumplen las reglas del cultivo?",
+        "r": "Es lo más serio del modelo. Todas las parcelas operan bajo una sola autorización, así que un incumplimiento en una pone en riesgo el trabajo de todas las demás. Por eso las reglas se explican en detalle antes de empezar, no después."
       }
     ]
   },
@@ -63,23 +59,6 @@
       {
         "p": "¿Sirve para cualquier animal?",
         "r": "Funciona bien en caballos, ganado, aves, conejos y pequeños animales, con matices en cada caso. En la página de cañamiza explicamos las ventajas y las desventajas para cada uno."
-      }
-    ]
-  },
-  {
-    "grupo": "Semilla",
-    "preguntas": [
-      {
-        "p": "¿Me pueden vender semilla?",
-        "r": "Todavía no. La venta de semilla para siembra la regula la Oficina Nacional de Semillas y ese permiso está en trámite. Cuando salga, antes de cualquier venta revisamos el permiso del comprador, porque así lo exige la ley."
-      },
-      {
-        "p": "¿Por qué no piden el número de permiso en el formulario?",
-        "r": "Porque es un dato sensible y no hay razón para recogerlo en una página pública. La validación la hacemos directamente con usted, fuera de la web, antes de vender."
-      },
-      {
-        "p": "¿Qué variedad manejan?",
-        "r": "Futura 75, certificada en la Unión Europea. Además estamos investigando una variedad propia adaptada al clima tropical."
       }
     ]
   }
