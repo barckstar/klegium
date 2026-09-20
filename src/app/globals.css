@@ -156,6 +156,31 @@ body {
 .cine-lema {
   animation: subir-suave 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
 }
+/* El titular respira: una escala mínima y un resplandor que sube y baja.
+   Va en un elemento propio dentro del h1, no en el h1 mismo: `abrir-titulo`
+   ya ocupa su transform y la última animación declarada se comería el pulso
+   de entrada. Arranca cuando esa entrada termina (0.35s + 2.4s) y `backwards`
+   deja puesta la sombra base durante la espera. */
+@keyframes latido-titulo {
+  from {
+    transform: scale(1);
+    text-shadow:
+      0 2px 24px rgba(0, 0, 0, 0.38),
+      0 0 0 rgba(215, 213, 198, 0);
+  }
+  to {
+    transform: scale(1.022);
+    text-shadow:
+      0 2px 34px rgba(0, 0, 0, 0.46),
+      0 0 26px rgba(215, 213, 198, 0.3);
+  }
+}
+.latido-titulo {
+  display: inline-block;
+  will-change: transform;
+  animation: latido-titulo 5.5s ease-in-out 2.8s infinite alternate backwards;
+}
+
 .cine-telon-arriba {
   animation: telon-arriba 1.5s cubic-bezier(0.83, 0, 0.17, 1) 0.15s both;
 }
@@ -174,6 +199,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .cine-titulo,
+  .latido-titulo,
   .cine-marca,
   .cine-lema,
   .cine-telon-arriba,
@@ -183,6 +209,11 @@ body {
     transform: none;
     filter: none;
     letter-spacing: 0.18em;
+  }
+  /* Sin movimiento, pero el titular conserva la sombra que lo despega del video. */
+  .latido-titulo {
+    letter-spacing: inherit;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.42);
   }
   .cine-telon-arriba,
   .cine-telon-abajo {

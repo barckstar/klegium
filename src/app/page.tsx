@@ -53,10 +53,10 @@ export default function PaginaInicio() {
             width={384}
             height={457}
             priority
-            className="cine-marca mx-auto mb-10 h-24 w-auto sm:h-32"
+            className="cine-marca mx-auto mb-10 h-28 w-auto sm:h-40"
           />
           <h1 className="cine-titulo text-[clamp(2.5rem,12vw,9rem)] font-semibold leading-none text-[var(--color-beige)]">
-            KLEGIUM
+            <span className="latido-titulo">KLEGIUM</span>
           </h1>
           <p className="cine-lema mt-8 text-balance text-lg text-[var(--color-verde-hoja)] sm:text-2xl">
             Cultivamos el presente, construimos el futuro.
