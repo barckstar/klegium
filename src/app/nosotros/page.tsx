@@ -156,7 +156,7 @@ export default function PaginaNosotros() {
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
               El equipo
             </p>
-            <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">Quiénes lo dirigen</h2>
+            <h2 className="mt-5 text-3xl font-semibold sm:text-4xl">Nuestro equipo</h2>
           </Revelar>
 
           <ul className="mt-12 grid gap-8 sm:grid-cols-3">

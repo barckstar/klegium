@@ -73,7 +73,8 @@
         "Algunos ejemplares ingieren el material. El cáñamo es poco digerible, por lo que se recomienda supervisión durante los primeros días",
         "El establecimiento de cama profunda requiere mayor volumen inicial que un recambio ordinario"
       ],
-      "foto": null
+      "foto": "/fotos/animal-caballos.jpg",
+      "fotoAlt": "Caballo en el pasillo de una caballeriza con boxes a ambos lados"
     },
     {
       "id": "ganado",
@@ -92,7 +93,8 @@
         "El transporte a zonas lejanas de San Ramón encarece el saco",
         "No sustituye la ventilación ni la limpieza: un piso con drenaje deficiente no se corrige con el material de cama"
       ],
-      "foto": null
+      "foto": "/fotos/animal-ganado.jpg",
+      "fotoAlt": "Vaca saliendo de un establo hacia el corral"
     },
     {
       "id": "aves",
@@ -111,7 +113,8 @@
         "No debe colocarse material nuevo sobre cama húmeda o apelmazada: es necesario retirarla previamente",
         "Necesita bodega seca"
       ],
-      "foto": null
+      "foto": "/fotos/animal-aves.jpg",
+      "fotoAlt": "Gallinas sobre cama profunda en el interior de un galpón"
     },
     {
       "id": "conejos",
@@ -129,9 +132,21 @@
         "En cantidades pequeñas el costo por unidad sube",
         "Tiende a apelmazarse si la jaula carece de drenaje o no se limpia con regularidad"
       ],
-      "foto": null
+      "foto": "/fotos/animal-conejos.jpg",
+      "fotoAlt": "Dos conejos sobre una cama de material vegetal"
     }
   ],
-  "canales": ["Agroveterinarias", "Distribuidores agropecuarios"],
-  "notaHonestidad": "Ningún material de cama sustituye la ventilación, el drenaje ni la limpieza de las instalaciones. La cañamiza contribuye al manejo; no lo reemplaza."
+  "canales": [
+    "Agroveterinarias",
+    "Distribuidores agropecuarios"
+  ],
+  "notaHonestidad": "Ningún material de cama sustituye la ventilación, el drenaje ni la limpieza de las instalaciones. La cañamiza contribuye al manejo; no lo reemplaza.",
+  "destacado": {
+    "foto": "/fotos/establo-caballos.jpg",
+    "fotoAlt": "Caballos en una caballeriza con cama de material vegetal",
+    "eyebrow": "Línea comercial en operación",
+    "titulo": "Aserrín de Oro",
+    "subtitulo": "Cañamiza triturada para cama animal",
+    "texto": "Material de cama producido en San Ramón a partir del núcleo leñoso del tallo de cáñamo industrial, con trazabilidad documentada de cada lote."
+  }
 }

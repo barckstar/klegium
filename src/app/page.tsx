@@ -4,7 +4,7 @@ import { VideoFondo } from '@/components/VideoFondo'
 import { Revelar } from '@/components/Revelar'
 import { Instituciones } from '@/components/Instituciones'
 import { Fuentes } from '@/components/Fuentes'
-import { getRed } from '@/lib/datos'
+import { getRed, getCanamiza } from '@/lib/datos'
 
 const PILARES = [
   'Cultivo sostenible',
@@ -16,6 +16,7 @@ const PILARES = [
 
 export default function PaginaInicio() {
   const { propuesta, impactos } = getRed()
+  const { destacado } = getCanamiza()
 
   return (
     <>
@@ -60,6 +61,41 @@ export default function PaginaInicio() {
           <p className="cine-lema mt-8 text-balance text-lg text-[var(--color-verde-hoja)] sm:text-2xl">
             Cultivamos el presente, construimos el futuro.
           </p>
+        </div>
+      </section>
+
+      {/* --------------------------------------------------------- producto
+          Va inmediatamente después del hero: es lo único que hoy se vende. */}
+      <section className="relative isolate flex min-h-[78svh] items-end overflow-hidden bg-[var(--color-negro)]">
+        <Image
+          src={destacado.foto}
+          alt={destacado.fotoAlt}
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-[var(--color-negro)]/45" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/60 to-transparent" />
+
+        <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-[var(--color-beige)]">
+          <Revelar>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">
+              {destacado.eyebrow}
+            </p>
+            <h2 className="mt-6 text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.98]">
+              {destacado.titulo}
+            </h2>
+            <p className="mt-4 text-xl text-[var(--color-salvia)] sm:text-2xl">
+              {destacado.subtitulo}
+            </p>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed">{destacado.texto}</p>
+            <Link
+              href="/canamiza"
+              className="mt-10 inline-block rounded-sm bg-[var(--color-verde-hoja)] px-8 py-4 font-semibold text-[var(--color-verde-profundo)] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Ver el producto
+            </Link>
+          </Revelar>
         </div>
       </section>
 
@@ -199,50 +235,6 @@ export default function PaginaInicio() {
               </div>
             </Revelar>
           </div>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------------- producto */}
-      <section className="bg-[var(--color-beige)]">
-        <div className="mx-auto max-w-6xl px-4 py-24">
-          <Revelar>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-bosque)]">
-              Línea comercial
-            </p>
-          </Revelar>
-
-          <Revelar retraso={120}>
-            <Link
-              href="/canamiza"
-              className="group mt-12 grid overflow-hidden rounded-sm bg-[var(--color-salvia)]/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:grid-cols-2"
-            >
-              <div className="recorte-limpio relative aspect-[16/10] overflow-hidden md:aspect-auto">
-                <Image
-                  src="/fotos/canamiza-material.jpg"
-                  alt="Cañamiza de cáñamo industrial triturada, destinada a cama animal"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 576px"
-                  className="scale-[1.01] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
-                />
-              </div>
-              <div className="flex flex-col justify-center p-8 sm:p-12">
-                <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-verde-bosque)]">
-                  Caballerizas · Fincas · Agroveterinarias
-                </p>
-                <h3 className="mt-4 text-4xl font-semibold">Cañamiza triturada</h3>
-                <p className="mt-5 leading-relaxed">
-                  Material de cama para animales, cultivado y procesado en San
-                  Ramón, con trazabilidad documentada de cada lote.
-                </p>
-                <span className="mt-8 inline-flex items-center gap-2 font-semibold text-[var(--color-verde-bosque)]">
-                  Ver el producto
-                  <span className="transition-transform duration-300 group-hover:translate-x-2">
-                    →
-                  </span>
-                </span>
-              </div>
-            </Link>
-          </Revelar>
         </div>
       </section>
 

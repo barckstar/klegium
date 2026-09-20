@@ -81,7 +81,17 @@ export default function PaginaCanamiza() {
 
         <div className="mt-12 grid gap-px bg-[var(--color-verde-bosque)]/20 sm:grid-cols-2">
           {beneficios.map((b, i) => (
-            <Revelar key={b.id} retraso={i * 100} className="h-full">
+            <Revelar
+              key={b.id}
+              retraso={i * 100}
+              /* Con un número impar de beneficios la última celda quedaba vacía.
+                 Al ocupar las dos columnas, la rejilla cierra pareja. */
+              className={`h-full ${
+                beneficios.length % 2 === 1 && i === beneficios.length - 1
+                  ? 'sm:col-span-2'
+                  : ''
+              }`}
+            >
               <div className="h-full bg-[var(--color-beige)] p-8 transition-colors duration-300 hover:bg-[var(--color-salvia)]/30 sm:p-10">
                 <span className="text-sm tabular-nums tracking-widest text-[var(--color-verde-bosque)]/60">
                   0{i + 1}
@@ -121,7 +131,7 @@ export default function PaginaCanamiza() {
                       {a.foto ? (
                         <Image
                           src={a.foto}
-                          alt={a.nombre}
+                          alt={a.fotoAlt ?? a.nombre}
                           fill
                           sizes="240px"
                           className="object-cover"

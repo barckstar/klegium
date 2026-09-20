@@ -41,6 +41,7 @@ const animalSchema = z.object({
   /** Se publican. Decir las desventajas de frente es lo que hace creíbles las ventajas. */
   desventajas: z.array(z.string()).min(1),
   foto: z.string().nullable(),
+  fotoAlt: z.string().optional(),
 })
 
 const canamizaSchema = z.object({
@@ -54,6 +55,14 @@ const canamizaSchema = z.object({
   animales: z.array(animalSchema).min(1),
   canales: z.array(z.string()).min(1),
   notaHonestidad: z.string(),
+  destacado: z.object({
+    foto: z.string(),
+    fotoAlt: z.string(),
+    eyebrow: z.string(),
+    titulo: z.string(),
+    subtitulo: z.string(),
+    texto: z.string(),
+  }),
 })
 
 export type Animal = z.infer<typeof animalSchema>
