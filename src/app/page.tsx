@@ -75,9 +75,15 @@ export default function PaginaInicio() {
           className="-z-10 object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-[var(--color-negro)]/45" />
+        {/* Degradados arriba y abajo: la sección entra desde el verde del hero y
+            sale hacia el de la siguiente, sin cortes duros en ningún borde. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-[var(--color-verde-profundo)] to-transparent"
+        />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-verde-profundo)] via-[var(--color-verde-profundo)]/60 to-transparent" />
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-[var(--color-beige)]">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-40 text-[var(--color-beige)]">
           <Revelar>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-verde-hoja)]">
               {destacado.eyebrow}
