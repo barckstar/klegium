@@ -11,8 +11,9 @@ import { Revelar } from '@/components/Revelar'
  * con la relación real escrita al lado, en vez de un genérico "nos apoyan", y
  * la aclaración queda impresa al pie de la sección.
  *
- * La cifra de permisos vive aquí y no en una sección aparte: es el dato que le
- * da peso al bloque. Sin ella, dos logos sueltos se leen como un espacio vacío.
+ * Las actividades autorizadas se listan aquí, y no en una sección aparte,
+ * porque son lo que le da peso al bloque: dos logos sueltos se leen como un
+ * espacio vacío. Nunca se publica cuántos permisos hay ni cuáles faltan.
  */
 export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' }) {
   const instituciones = getInstituciones()
@@ -45,31 +46,32 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
               públicas
             </h2>
 
-            <div
-              className={`mt-10 flex items-baseline gap-5 border-t pt-8 ${
+            <p className="mt-8 max-w-md leading-relaxed opacity-80">
+              {permisos.resumen}
+            </p>
+
+            {/* Las actividades autorizadas, no su cantidad: dicen lo mismo sin
+                dejar a la vista cuántas quedan fuera. */}
+            <ul
+              className={`mt-10 border-t ${
                 oscuro
                   ? 'border-[var(--color-salvia)]/25'
                   : 'border-[var(--color-verde-bosque)]/25'
               }`}
             >
-              <p
-                className={`text-[clamp(3.5rem,11vw,6rem)] font-semibold leading-[0.8] tabular-nums tracking-tight ${
-                  oscuro
-                    ? 'text-[var(--color-verde-hoja)]'
-                    : 'text-[var(--color-verde-bosque)]'
-                }`}
-              >
-                {permisos.otorgados}
-              </p>
-              <p className="text-lg leading-snug opacity-70">
-                de {permisos.total} permisos
-                <br />
-                posibles en el país
-              </p>
-            </div>
-            <p className="mt-6 max-w-md leading-relaxed opacity-80">
-              {permisos.resumen}
-            </p>
+              {permisos.actividades.map((a) => (
+                <li
+                  key={a}
+                  className={`border-b py-4 text-lg font-semibold ${
+                    oscuro
+                      ? 'border-[var(--color-salvia)]/15 text-[var(--color-verde-hoja)]'
+                      : 'border-[var(--color-verde-bosque)]/15 text-[var(--color-verde-bosque)]'
+                  }`}
+                >
+                  {a}
+                </li>
+              ))}
+            </ul>
           </Revelar>
 
           {/* -------------------------------------------------- lado derecho */}

@@ -3,7 +3,7 @@ import { metadatosDe } from '@/lib/sitio'
 import { Hero, Eyebrow } from '@/components/Hero'
 import { Revelar } from '@/components/Revelar'
 import { Instituciones } from '@/components/Instituciones'
-import { getPermisos, getEquipo } from '@/lib/datos'
+import { getEquipo } from '@/lib/datos'
 
 export const metadata = metadatosDe({
   titulo: 'Nosotros',
@@ -24,7 +24,6 @@ const GALERIA = [
 ]
 
 export default function PaginaNosotros() {
-  const permisos = getPermisos()
   const { fundadores, expertos } = getEquipo()
 
   return (
@@ -98,24 +97,10 @@ export default function PaginaNosotros() {
         </Revelar>
       </section>
 
-      {/* ---------------------------------------------------------- permisos */}
-      <section className="bg-[var(--color-verde-profundo)] text-[var(--color-beige)]">
-        <div className="mx-auto max-w-4xl px-4 py-24 text-center">
-          <Revelar>
-            <Eyebrow>Marco regulatorio</Eyebrow>
-            <p className="mt-8 text-[clamp(3.5rem,12vw,7rem)] font-semibold leading-none text-[var(--color-verde-hoja)]">
-              {permisos.otorgados}
-            </p>
-            <p className="mt-4 text-2xl font-semibold">
-              permisos otorgados por el Gobierno de Costa Rica
-            </p>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-salvia)]">
-              {permisos.resumen}
-            </p>
-          </Revelar>
-        </div>
-      </section>
-
+      {/* El marco regulatorio ya no va en sección propia: el muro
+          institucional que sigue lo cubre entero —qué está autorizado y quién
+          lo autoriza— y tenerlo dos veces en la misma página lo repetía
+          palabra por palabra. */}
       <Instituciones fondo="claro" />
 
       {/* ---------------------------------------------------------- galería */}

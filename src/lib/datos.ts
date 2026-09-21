@@ -124,10 +124,13 @@ export function getRed(): Red {
 
 /* ------------------------------------------------------------------ permisos */
 
+/**
+ * Del marco regulatorio se publica qué se puede hacer, no cuántos permisos hay
+ * ni cuáles faltan. La cifra invita a preguntar por los que no están.
+ */
 const permisosSchema = z.object({
-  otorgados: z.number().int().positive(),
-  total: z.number().int().positive(),
   resumen: z.string(),
+  actividades: z.array(z.string()).min(1),
 })
 
 export function getPermisos() {

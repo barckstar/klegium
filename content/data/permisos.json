@@ -1,5 +1,9 @@
 {
-  "otorgados": 7,
-  "total": 9,
-  "resumen": "Contamos con siete permisos otorgados por el Gobierno de Costa Rica para el cultivo, el procesamiento, el transporte y la comercialización de cáñamo industrial."
+  "resumen": "Contamos con permisos otorgados por el Gobierno de Costa Rica para el cultivo, el procesamiento, el transporte y la comercialización de cáñamo industrial.",
+  "actividades": [
+    "Cultivo",
+    "Procesamiento",
+    "Transporte",
+    "Comercialización"
+  ]
 }
