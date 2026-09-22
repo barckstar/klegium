@@ -176,7 +176,7 @@ export default function PaginaCanamiza() {
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-60">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-75">
                         A considerar
                       </p>
                       <ul className="mt-4 space-y-3">

@@ -77,46 +77,53 @@ export function Instituciones({ fondo = 'claro' }: { fondo?: 'claro' | 'oscuro' 
           {/* -------------------------------------------------- lado derecho */}
           <ul className="grid gap-5 sm:grid-cols-2">
             {instituciones.map((i, n) => (
-              <Revelar key={i.id} desde="derecha" retraso={n * 140} className="h-full">
-                <li
-                  className={`flex h-full flex-col rounded-sm ${
-                    oscuro ? 'bg-white/95 text-[var(--color-negro)]' : 'bg-white'
-                  }`}
-                >
-                  {/* Caja de alto fijo: los dos logos tienen proporciones muy
-                      distintas y sin ella uno queda al doble que el otro. */}
-                  <div className="flex h-28 items-center justify-center px-8">
-                    {i.logo ? (
-                      <Image
-                        src={i.logo}
-                        alt={i.nombre}
-                        width={i.logoAncho ?? 200}
-                        height={i.logoAlto ?? 64}
-                        className="max-h-12 w-auto max-w-[200px] object-contain"
-                      />
-                    ) : (
-                      <span className="text-center text-lg font-semibold leading-snug text-[var(--color-verde-bosque)]">
-                        {i.nombre}
-                      </span>
-                    )}
-                  </div>
+              <li key={i.id} className="h-full">
+                {/*
+                  El envoltorio de la animacion va DENTRO del <li>. Entre <ul> y
+                  <li> rompe la semantica de lista, y el lector de pantalla deja
+                  de anunciar cuantas instituciones hay.
+                */}
+                <Revelar desde="derecha" retraso={n * 140} className="h-full">
+                  <div
+                    className={`flex h-full flex-col rounded-sm ${
+                      oscuro ? 'bg-white/95 text-[var(--color-negro)]' : 'bg-white'
+                    }`}
+                  >
+                    {/* Caja de alto fijo: los dos logos tienen proporciones muy
+                        distintas y sin ella uno queda al doble que el otro. */}
+                    <div className="flex h-28 items-center justify-center px-8">
+                      {i.logo ? (
+                        <Image
+                          src={i.logo}
+                          alt={i.nombre}
+                          width={i.logoAncho ?? 200}
+                          height={i.logoAlto ?? 64}
+                          className="max-h-12 w-auto max-w-[200px] object-contain"
+                        />
+                      ) : (
+                        <span className="text-center text-lg font-semibold leading-snug text-[var(--color-verde-bosque)]">
+                          {i.nombre}
+                        </span>
+                      )}
+                    </div>
 
-                  <div className="border-t border-[var(--color-verde-bosque)]/15 px-8 py-7">
-                    <p className="font-semibold leading-snug text-[var(--color-verde-bosque)]">
-                      {i.nombre}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--color-negro)]/70">
-                      {i.relacion}
-                    </p>
+                    <div className="border-t border-[var(--color-verde-bosque)]/15 px-8 py-7">
+                      <p className="font-semibold leading-snug text-[var(--color-verde-bosque)]">
+                        {i.nombre}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--color-negro)]/70">
+                        {i.relacion}
+                      </p>
+                    </div>
                   </div>
-                </li>
-              </Revelar>
+                </Revelar>
+              </li>
             ))}
           </ul>
         </div>
 
         <p
-          className={`mt-14 border-t pt-6 text-xs leading-relaxed opacity-60 ${
+          className={`mt-14 border-t pt-6 text-xs leading-relaxed opacity-75 ${
             oscuro
               ? 'border-[var(--color-salvia)]/25'
               : 'border-[var(--color-verde-bosque)]/25'

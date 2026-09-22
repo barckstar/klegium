@@ -2,10 +2,10 @@
   "nombre": "Klegium",
   "tagline": "Cultivamos el presente, construimos el futuro.",
   "dominio": "klegium.com",
-  "actualizado": "2026-09-16",
+  "actualizado": "2026-09-22",
   "colores": [
     { "token": "verde-profundo", "hex": "#1D2A1E", "rol": "dominante",  "uso": "Fondos oscuros, base" },
-    { "token": "verde-bosque",   "hex": "#2F6B3F", "rol": "secundario", "uso": "Color principal de marca" },
+    { "token": "verde-bosque",   "hex": "#2C653B", "rol": "secundario", "uso": "Color principal de marca. Oscurecido 6% desde #2F6B3F: sobre beige daba 4,32 y no pasaba AA para texto pequeno; ahora 4,69" },
     { "token": "verde-hoja",     "hex": "#7CB342", "rol": "acento",     "uso": "Llamadas a la acción, resaltados" },
     { "token": "salvia",         "hex": "#B8C49A", "rol": "secundario", "uso": "Superficies suaves, apoyo" },
     { "token": "beige",          "hex": "#D7D5C6", "rol": "dominante",  "uso": "Fondo claro, respiro" },

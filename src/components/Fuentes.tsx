@@ -50,7 +50,7 @@ export function Fuentes({
                   : 'border-t border-[var(--color-verde-bosque)]/20'
               }`}
             >
-              <span className="text-sm tabular-nums opacity-40">
+              <span className="text-sm tabular-nums opacity-75">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
@@ -67,7 +67,7 @@ export function Fuentes({
                   >
                     {f.titulo}
                   </a>
-                  <span className="opacity-60"> — {f.autor}</span>
+                  <span className="opacity-75"> — {f.autor}</span>
                 </p>
                 <p className="mt-2 text-sm leading-relaxed opacity-75">
                   Respalda: {f.respalda}
